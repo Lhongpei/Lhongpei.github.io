@@ -31,7 +31,7 @@ organizations:
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:your-email@example.com'
+    url: 'ishongpeili@gmail.com'
     label: E-mail Me
   # - icon: brands/x
   #   url: https://twitter.com/GetResearchDev
@@ -117,32 +117,46 @@ skills:
     items:
       - name: Python
         description: ''
+        percent: 100
+        icon: <i class="devicon-python-plain"></i>
+      - name: R
+        description: ''
         percent: 80
-        icon: code-bracket
-      - name: Data Science
+        icon: <i class="devicon-r-plain"></i>
+      - name: Julia
+        description: ''
+        percent: 90
+        icon: <i class="devicon-julia-plain-wordmark"></i>
+      - name: C++
+        description: ''
+        percent: 60
+        icon: <i class="devicon-cplusplus-plain"></i>
+      - name: PyTorch & PyG
         description: ''
         percent: 100
-        icon: chart-bar
-      - name: SQL
+        icon: <i class="devicon-pytorch-original"></i>
+      - name: LaTex
         description: ''
-        percent: 40
-        icon: circle-stack
+        percent: 100
+        icon: <i class="devicon-latex-original"></i>
+      - name: Markdown
+        description: ''
+        percent: 100
+        icon: <i class="devicon-markdown-original"></i>
+
   - name: Hobbies
     color: '#eeac02'
     color_border: '#f0bf23'
     items:
-      - name: Hiking
+      - name: Drawing
         description: ''
         percent: 60
         icon: person-simple-walk
-      - name: Cats
-        description: ''
-        percent: 100
-        icon: cat
-      - name: Photography
+      - name: Biking
         description: ''
         percent: 80
-        icon: camera
+        icon: cat
+
 
 languages:
   - name: English
