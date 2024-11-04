@@ -1,0 +1,42 @@
+---
+title: 'Deep Reinforcement Learning for Online Assortment Customization: A Data-Driven
+  Approach'
+authors:
+- Tao Li
+- Chenhao Wang
+- Yao Wang
+- Shaojie Tang
+date: '2023-01-01'
+publishDate: '2024-11-04T04:02:22.428365Z'
+publication_types:
+- article-journal
+publication: '*SSRN Electronic Journal*'
+doi: 10.2139/ssrn.4413200
+abstract: When a retailer has limited inventory and is operating on a periodic selling
+  schedule, it is important to have a variety of products available for each customer.
+  To maximize revenue over the long term, an optimal assortment policy is required
+  that takes into account the complex purchasing behaviors of customers whose arrival
+  order and preferences are unknown. By analyzing historical customer arrival and
+  transaction data, we propose a data-driven approach for dynamic assortment planning.
+  To address the challenge of online assortment customization, we utilize a Markov
+  decision process (MDP) framework and employ a model-free deep reinforcement learning
+  (DRL) approach to learn a policy that is nearly optimal. Our method involves using
+  a specialized deep learning model called Gated-DNN to create assortments while adhering
+  to constraints, and a modified version of the Advantage Actor-Critic (A2C) algorithm
+  to adjust the parameters of the Gated-DNN model. The updates to the model’s parameters
+  are done by simulated interactions with historical sequences of customer arrivals.
+  The feedback we receive from simulated customers can take any form and should match
+  the historical transaction data as closely as possible to ensure the effectiveness
+  of the policy we learn. To evaluate the effectiveness of our approach, we conduct
+  simulations using both a synthetic data set generated with a pre-determined customer
+  type distribution and choice model, as well as a real-world data set. Our extensive
+  experiments demonstrate that our approach produces significantly higher long-term
+  revenue compared to existing methods and remains robust under various conditions.
+  We also demonstrate that our approach can be easily adapted to a more general problem
+  that includes reusable products, where customers return purchased items after a
+  period of time. In further experiments, we find that our approach performs best
+  under various usage time distributions.
+links:
+- name: URL
+  url: https://www.ssrn.com/abstract=4413200
+---

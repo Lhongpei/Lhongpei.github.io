@@ -1,0 +1,14 @@
+@misc{cao_learning_2023-1,
+ abstract = {Learning to predict properties of a large graph is challenging because each prediction requires the knowledge of an entire graph, while the amount of memory available during training is bounded. Here we propose Graph Segment Training (GST), a general framework that utilizes a divide-and-conquer approach to allow learning large graph property prediction with a constant memory footprint. GST first divides a large graph into segments and then backpropagates through only a few segments sampled per training iteration. We refine the GST paradigm by introducing a historical embedding table to efficiently obtain embeddings for segments not sampled for backpropagation. To mitigate the staleness of historical embeddings, we design two novel techniques. First, we finetune the prediction head to fix the input distribution shift. Second, we introduce Stale Embedding Dropout to drop some stale embeddings during training to reduce bias. We evaluate our complete method GST+EFD (with all the techniques together) on two large graph property prediction benchmarks: MalNet and TpuGraphs. Our experiments show that GST+EFD is both memory-efficient and fast, while offering a slight boost on test accuracy over a typical full graph training regime.},
+ author = {Cao, Kaidi and Phothilimthana, Phitchaya Mangpo and Abu-El-Haija, Sami and Zelle, Dustin and Zhou, Yanqi and Mendis, Charith and Leskovec, Jure and Perozzi, Bryan},
+ file = {Cao 等 - 2023 - Learning Large Graph Property Prediction via Graph.pdf:C\:\\Users\\14532\\Zotero\\storage\\4MDPIWMN\\Cao 等 - 2023 - Learning Large Graph Property Prediction via Graph.pdf:application/pdf},
+ keywords = {Computer Science - Machine Learning, Computer Science - Social and Information Networks},
+ language = {en},
+ month = {November},
+ note = {arXiv:2305.12322 [cs]},
+ publisher = {arXiv},
+ title = {Learning Large Graph Property Prediction via Graph Segment Training},
+ url = {http://arxiv.org/abs/2305.12322},
+ urldate = {2024-05-24},
+ year = {2023}
+}

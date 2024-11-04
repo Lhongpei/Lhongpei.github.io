@@ -1,0 +1,41 @@
+---
+title: A multi-action deep reinforcement learning framework for flexible Job-shop
+  scheduling problem
+authors:
+- Kun Lei
+- Peng Guo
+- Wenchao Zhao
+- Yi Wang
+- Linmao Qian
+- Xiangyin Meng
+- Liansheng Tang
+date: '2022-11-01'
+publishDate: '2024-11-04T04:02:22.282812Z'
+publication_types:
+- article-journal
+publication: '*Expert Systems with Applications*'
+doi: 10.1016/j.eswa.2022.117796
+abstract: This paper presents an end-to-end deep reinforcement framework to automatically
+  learn a policy for solving a flexible Job-shop scheduling problem (FJSP) using a
+  graph neural network. In the FJSP environment, the rein­ forcement agent needs to
+  schedule an operation belonging to a job on an eligible machine among a set of compatible
+  machines at each timestep. This means that an agent needs to control multiple actions
+  simulta­ neously. Such a problem with multi-actions is formulated as a multiple
+  Markov decision process (MMDP). For solving the MMDPs, we propose a multi-pointer
+  graph networks (MPGN) architecture and a training algorithm called multi-Proximal
+  Policy Optimization (multi-PPO) to learn two sub-policies, including a job operation
+  action policy and a machine action policy to assign a job operation to a machine.
+  The MPGN architecture consists of two encoder-decoder components, which define the
+  job operation action policy and the machine action policy for predicting probability
+  distributions over different operations and machines, respectively. We introduce
+  a disjunctive graph representation of FJSP and use a graph neural network to embed
+  the local state encountered during scheduling. The computational experiment results
+  show that the agent can learn a high-quality dis­ patching policy and outperforms
+  handcrafted heuristic dispatching rules in solution quality and meta-heuristic algorithm
+  in running time. Moreover, the results achieved on random and benchmark instances
+  demonstrate that the learned policies have a good generalization performance on
+  real-world instances and significantly larger scale instances with up to 2000 operations.
+links:
+- name: URL
+  url: https://linkinghub.elsevier.com/retrieve/pii/S0957417422010624
+---

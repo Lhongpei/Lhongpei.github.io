@@ -1,0 +1,37 @@
+---
+title: A new double flexible job-shop scheduling problem integrating processing time,
+  green production, and human factor indicators
+authors:
+- Guiliang Gong
+- Qianwang Deng
+- Xuran Gong
+- Wei Liu
+- Qinghua Ren
+date: '2018-02-01'
+publishDate: '2024-11-04T04:02:22.305259Z'
+publication_types:
+- article-journal
+publication: '*Journal of Cleaner Production*'
+doi: 10.1016/j.jclepro.2017.10.188
+abstract: In this paper, we propose an original double ﬂexible job-shop scheduling
+  problem (DFJSP), in which both workers and machines are ﬂexible. Because of the
+  characteristics of double ﬂexibility, DFJSP conforms to practical production better
+  than the ﬂexible job-shop scheduling problem (FJSP). In addition, a multiobjective
+  optimization mathematic model according to the DFJSP is proposed, which is concerned
+  with the processing time indicator that is usually optimized by most existing studies;
+  green production indicators, namely, factors regarding environmental protection;
+  and human factor indicators, which are actual indispensable elements that exist
+  in the production system. Furthermore, ten benchmarks of DFJSP are presented and
+  solved using a newly proposed hybrid genetic algorithm (NHGA). With the proposed
+  NHGA, a new well-designed three-layer chromosome encoding method and some effective
+  crossover and mutation operators are developed. To obtain the best combination of
+  key parameters in NHGA, the Taguchi design of experiment method is used for their
+  evaluation. Finally, comparisons between NHGA and NSGA-II show that the proposed
+  NHGA has advantages in terms of the solving accuracy and efﬁciency of the DFJSP,
+  particularly at a large scale. It would be beneﬁcial to apply our proposed model
+  to the multi-objective optimization of scheduling problems, especially those considering
+  human factor and green production-related indicators.
+links:
+- name: URL
+  url: https://linkinghub.elsevier.com/retrieve/pii/S0959652617324952
+---

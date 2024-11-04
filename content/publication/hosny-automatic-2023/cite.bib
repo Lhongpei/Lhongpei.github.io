@@ -1,0 +1,14 @@
+@misc{hosny_automatic_2023,
+ abstract = {A large number of real-world optimization problems can be formulated as Mixed Integer Linear Programs (MILP). MILP solvers expose numerous configuration parameters to control their internal algorithms. Solutions, and their associated costs or runtimes, are significantly affected by the choice of the configuration parameters, even when problem instances have the same number of decision variables and constraints. On one hand, using the default solver configuration leads to suboptimal solutions. On the other hand, searching and evaluating a large number of configurations for every problem instance is time-consuming and, in some cases, infeasible. In this study, we aim to predict configuration parameters for unseen problem instances that yield lower-cost solutions without the time overhead of searching-and-evaluating configurations at the solving time. Toward that goal, we first investigate the cost correlation of MILP problem instances that come from the same distribution when solved using different configurations. We show that instances that have similar costs using one solver configuration also have similar costs using another solver configuration in the same runtime environment. After that, we present a methodology based on Deep Metric Learning to learn MILP similarities that correlate with their final solutions' costs. At inference time, given a new problem instance, it is first projected into the learned metric space using the trained model, and configuration parameters are instantly predicted using previously-explored configurations from the nearest neighbor instance in the learned embedding space. Empirical results on real-world problem benchmarks show that our method predicts configuration parameters that improve solutions' costs by up to 38% compared to existing approaches.},
+ author = {Hosny, Abdelrahman and Reda, Sherief},
+ file = {Hosny 和 Reda - 2023 - Automatic MILP Solver Configuration By Learning Pr.pdf:C\:\\Users\\14532\\Zotero\\storage\\DN4WXR7S\ősny 和 Reda - 2023 - Automatic MILP Solver Configuration By Learning Pr.pdf:application/pdf},
+ keywords = {Computer Science - Machine Learning, Mathematics - Optimization and Control},
+ language = {en},
+ month = {July},
+ note = {arXiv:2307.00670 [cs, math]},
+ publisher = {arXiv},
+ title = {Automatic MILP Solver Configuration By Learning Problem Similarities},
+ url = {http://arxiv.org/abs/2307.00670},
+ urldate = {2024-06-14},
+ year = {2023}
+}
