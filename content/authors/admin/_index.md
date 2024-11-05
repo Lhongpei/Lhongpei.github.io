@@ -74,7 +74,7 @@ education:
   #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
   - area: BSc Data Science and Big Data Technology
     # class: Interdisciplinary Science Experimental Class
-    institution: School of Information Management and Engineering, Shanghai University of Finance and Economics
+    institution: Pilot Class of Research Institute for Interdisciplinary Science at Shanghai University of Finance and Economics
     date_start: 2021-09-01
     date_end: 2025-06-01
     summary: |
@@ -82,11 +82,8 @@ education:
       Average Score: 89.44/100
       Class Ranking: 5/18
       Grade Ranking: 7/118
-      Courses (and Score) included:
-      - Linear and Nonlinear Programming 4.0
-      - Optimization(advanced) 4.0
-      - Deep Learning 4.0
-      - Machine Learning 4.0
+      Courses included:
+      Discrete Mathematics, Linear Algebra, Mathematical Analysis, Probability, Mathematical Statistics, Advanced Program Design and Experiment, Linear and Nonlinear Programming, Advanced Operations Research, High-Dimensional Data Analysis, Data Structure, Machine Learning, Deep Learning, Economic Management of Computer Application, Game Theory, Numerical Computation Method, etc.
 # work:
 #   - position: Director of Cloud Infrastructure
 #     company_name: GenCoin
