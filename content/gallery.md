@@ -13,6 +13,7 @@ sections:
     content:
       title: Gallery
       text: 'I often draw simple pictures to relax myself and there are some drafts, logos and also some photographs'
+      count: 0
       filters:
         folders:
           - gallery_pic
