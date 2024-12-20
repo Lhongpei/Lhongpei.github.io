@@ -76,7 +76,7 @@ education:
     # class: Interdisciplinary Science Experimental Class
     institution: Pilot Class of Research Institute for Interdisciplinary Science at Shanghai University of Finance and Economics
     date_start: 2021-09-01
-    date_end: 2025-06-01
+    date_end: 2025-06-30
     summary: |
       - Average Score: 89.44/100  GPA: 3.77/4.0
       - Class Ranking: 5/18  Grade Ranking: 7/118
@@ -89,8 +89,8 @@ work:
     company_name: Prof. Bo Jiang (RIIS@SUFE)
     company_url: ''
     company_logo: ''
-    date_start: 2024-02
-    date_end: 2024-06
+    date_start: 2024-02-04
+    date_end: 2024-06-30
     summary: |
       - Syllabus: 
         This course mainly focuses on the fields of Operations Research, including Optimization Theory, Integer Programming, Revenue Management, Constrained & Unconstrained Optimization, Robust Optimization.
@@ -100,8 +100,8 @@ work:
     company_name: Prof. Bundit Laekhanukit (ITCS@SUFE)
     company_url: ''
     company_logo: ''
-    date_start: 2023-09
-    date_end: 2024-01
+    date_start: 2023-09-14
+    date_end: 2024-01-31
     summary: |
       - Syllabus: 
         This course mainly focuses on understanding the principles of object-oriented programming and design.
