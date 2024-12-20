@@ -84,7 +84,8 @@ education:
         - Mathematics: Discrete Mathematics, Linear Algebra, Mathematical Analysis, Probability, Mathematical Statistics, Stochastic Process, Numerical Computation Method, Game Theory, Dynamic Programming, High-Dimensional Data Analysis, Data-Driven Decision Making, Operations Management, Linear & Nonlinear Programming, Advanced Operations Research
         - Computer Science: Python, C++, Data Structure, Data Mining, Machine Learning, Deep Learning,  Advanced Program Design and Experiment, Algorithmic Design & Analysis
         - Economics: Microeconomics, Macroeconomics, Economic Management of Computer Application, Econometrics, Money and Banking
-research:
+work:
+  - name: Research
   - position: Director of Cloud Infrastructure
     company_name: GenCoin
     company_url: ''
