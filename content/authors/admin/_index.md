@@ -114,41 +114,56 @@ skills:
   - name: Programming Langrage
     items:
       - name: Python
-        icon: devicon-python-plain
       - name: R
-        icon: <i class="devicon-r-plain"></i>
       - name: Julia
-        icon: <i class="devicon-julia-plain-wordmark"></i>
       - name: C/C++
-        icon: <i class="devicon-cplusplus-plain"></i>
       - name: MATLAB
       - name: Kotlin
   - name: Machine Learning
     items:
-    - name: 'DL: PyTorch, PyG, PyTorch Lighting'
-    - name: 'ML: Scikit-Learn'
-    - name: 'RL: Gym, Issac Gym'
+    - name: 'PyTorch'
+    - name: 'PyG'
+    - name: 'PyTorch Lightning'
+    - name: 'Scikit-Learn'
+    - name: 'Gym'
+    - name: 'Isaac Gym'
+    - name: 'NumPy'
+    - name: 'Pandas'
+    - name: 'Matplotlib'
+    - name: 'Seaborn'
   - name: Operations Research
     items: 
-    - name: COPT, Gurobi, SCIP, HIGHS, OR-Tools, JuMP, CVX. CPLEX
+    - name: 'COPT'
+    - name: 'Gurobi'
+    - name: 'SCIP'
+    - name: 'HIGHS'
+    - name: 'OR-Tools'
+    - name: 'JuMP'
+    - name: 'CVX'
+    - name: 'CPLEX'
+  - name: Formatting
+    items:
+    - name: Markdown
+    - name: LaTex
+    - name: Typst
   - name: Hobbies
     color: '#eeac02'
     color_border: '#f0bf23'
     items:
-      - name: Drawing
-        description: ''
-        percent: 60
-        icon: person-simple-walk
-      - name: Biking
-        description: ''
-        percent: 80
-        icon: cat
+      - name: 'Drawing'
+      - name: 'Biking'
+      - name: 'Skiing'
+      - name: 'Photography'
+      - name: 'Puzzle'
+      - name: 'Assembled Model'
+      - name: 'Coffee'
 
 
-languages:
-  - name: English
 
-  - name: Chinese
+# languages:
+#   - name: English
+
+#   - name: Chinese
 
 
 # Awards.
