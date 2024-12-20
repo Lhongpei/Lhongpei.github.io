@@ -33,14 +33,14 @@ profiles:
   - icon: at-symbol
     url: 'ishongpeili@gmail.com'
     label: E-mail Me
-  # - icon: brands/x
-  #   url: https://twitter.com/GetResearchDev
+  - icon: brands/x
+    url: https://x.com/HongpeiL81679
   # - icon: brands/instagram
   #   url: https://www.instagram.com/
   - icon: brands/github
     url: https://github.com/Lhongpei
-  # - icon: brands/linkedin
-  #   url: https://www.linkedin.com/
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/hongpei-li-7496722a2/
   - icon: academicons/google-scholar
     url: https://scholar.google.com/citations?user=ZXiUF98AAAAJ&hl=en&authuser=2
   - icon: academicons/orcid
