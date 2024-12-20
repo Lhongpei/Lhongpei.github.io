@@ -30,6 +30,9 @@ for subdir in subdirs:
             pic_target_path = os.path.join(target_root, pic_name)
             if not os.path.exists(pic_target_path):
                 os.makedirs(pic_target_path)
+            else:
+                os.system('rmdir /s/q %s' % pic_target_path)
+                os.makedirs(pic_target_path)
             # copy pic to target path
             pic_path = os.path.join(subdir_path, pic)
             pic_target_file_path = os.path.join(pic_target_path, 'featured.png')
