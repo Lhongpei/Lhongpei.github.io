@@ -78,9 +78,9 @@ education:
     date_start: 2021-09-01
     date_end: 2025-06-01
     summary: |
-      GPA: 3.77/4.0
-      Average Score: 89.44/100
-      Class Ranking: 5/18
+      - GPA: 3.77/4.0
+      - Average Score: 89.44/100
+      - Class Ranking: 5/18
       Grade Ranking: 7/118
       Courses included:
       Discrete Mathematics, Linear Algebra, Mathematical Analysis, Probability, Mathematical Statistics, Advanced Program Design and Experiment, Linear and Nonlinear Programming, Advanced Operations Research, High-Dimensional Data Analysis, Data Structure, Machine Learning, Deep Learning, Economic Management of Computer Application, Game Theory, Numerical Computation Method, etc.
