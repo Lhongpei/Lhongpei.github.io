@@ -42,6 +42,18 @@ sections:
         Please reach out to collaborate 😃
     design:
       columns: '1'
+  - block: markdown
+    content:
+      title: 'Skills & Hobbies'
+      text: |-
+        - **Programming Languages:** Python, C/C++, Julia, MATLAB, R, Kotlin  
+        - **Frameworks and Tools:**  
+          - **Machine Learning:** PyTorch, PyTorch Geometric (PyG), PyTorch Lightning, Scikit-learn, Gym, Isaac Gym  
+          - **Operations Research:** COPT, Gurobi, SCIP, HIGHS, OR-Tools, JuMP, CVX  
+          - **Document Formatting:** LaTeX, Markdown, Typst  
+          - **Others:** NumPy, Pandas, CUDA, CPython, JuliaCall, PythonCall, Shell, SSH, Git, YAML, JSON, Office, Photoshop  
+        - **Hobbies:** Drawing, Biking, Skiing, Photography, Puzzle, Assembled Model, Coffee  
+
   # - block: collection
   #   id: papers
   #   content:
