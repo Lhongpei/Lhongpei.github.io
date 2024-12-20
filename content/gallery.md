@@ -1,6 +1,5 @@
 ---
 title: 'Gallery'
-date: 2024-05-19
 type: landing
 
 design:
@@ -16,7 +15,7 @@ sections:
       filters:
         folders:
           - gallery_pic
-        featured_only: true
+
     design:
       view: article-grid
       fill_image: false
