@@ -45,14 +45,20 @@ sections:
   - block: markdown
     content:
       title: 'Skills & Hobbies'
+      subtitle: Programming Languages
+      text: Python, C/C++, Julia, MATLAB, R, Kotlin  
+      subtitle: Frameworks and Tools
       text: |-
-        - **Programming Languages:** Python, C/C++, Julia, MATLAB, R, Kotlin  
-        - **Frameworks and Tools:**  
-          - **Machine Learning:** PyTorch, PyTorch Geometric (PyG), PyTorch Lightning, Scikit-learn, Gym, Isaac Gym  
-          - **Operations Research:** COPT, Gurobi, SCIP, HIGHS, OR-Tools, JuMP, CVX  
-          - **Document Formatting:** LaTeX, Markdown, Typst  
-          - **Others:** NumPy, Pandas, CUDA, CPython, JuliaCall, PythonCall, Shell, SSH, Git, YAML, JSON, Office, Photoshop  
-        - **Hobbies:** Drawing, Biking, Skiing, Photography, Puzzle, Assembled Model, Coffee  
+        - **Machine Learning:** 
+          PyTorch, PyTorch Geometric (PyG), PyTorch Lightning, Scikit-learn, Gym, Isaac Gym  
+        - **Operations Research:** 
+          COPT, Gurobi, SCIP, HIGHS, OR-Tools, JuMP, CVX  
+        - **Document Formatting:** 
+          LaTeX, Markdown, Typst  
+        - **Others:** 
+          NumPy, Pandas, CUDA, CPython, JuliaCall, PythonCall, Shell, SSH, Git, YAML, JSON, Office, Photoshop  
+      subtitle: Hobbies
+      text: Drawing, Biking, Skiing, Photography, Puzzle, Assembled Model, Coffee  
 
   # - block: collection
   #   id: papers
