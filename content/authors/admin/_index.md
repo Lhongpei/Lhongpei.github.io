@@ -72,34 +72,34 @@ education:
   #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
   #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
   #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - area: BSc Data Science and Big Data Technology
+  - area: BE Data Science and Big Data Technology
     # class: Interdisciplinary Science Experimental Class
     institution: Pilot Class of Research Institute for Interdisciplinary Science at Shanghai University of Finance and Economics
     date_start: 2021-09-01
     date_end: 2025-06-01
     summary: |
-      - GPA: 3.77/4.0
-      - Average Score: 89.44/100
-      - Class Ranking: 5/18
-      Grade Ranking: 7/118
-      Courses included:
-      Discrete Mathematics, Linear Algebra, Mathematical Analysis, Probability, Mathematical Statistics, Advanced Program Design and Experiment, Linear and Nonlinear Programming, Advanced Operations Research, High-Dimensional Data Analysis, Data Structure, Machine Learning, Deep Learning, Economic Management of Computer Application, Game Theory, Numerical Computation Method, etc.
-# work:
-#   - position: Director of Cloud Infrastructure
-#     company_name: GenCoin
-#     company_url: ''
-#     company_logo: ''
-#     date_start: 2021-01-01
-#     date_end: ''
-#     summary: |2-
-#       Responsibilities include:
-#       - lorem ipsum dolor sit amet, consectetur adipiscing elit
-#       - lorem ipsum dolor sit amet, consectetur adipiscing elit
-#       - lorem ipsum dolor sit amet, consectetur adipiscing elit
-#   - position: Backend Software Engineer
-#     company_name: X
-#     company_url: ''
-#     company_logo: ''
+      - Average Score: 89.44/100  GPA: 3.77/4.0
+      - Class Ranking: 5/18  Grade Ranking: 7/118
+      - Main Courses included:
+        - Mathematics: Discrete Mathematics, Linear Algebra, Mathematical Analysis, Probability, Mathematical Statistics, Stochastic Process, Numerical Computation Method, Game Theory, Dynamic Programming, High-Dimensional Data Analysis, Data-Driven Decision Making, Operations Management, Linear & Nonlinear Programming, Advanced Operations Research
+        - Computer Science: Python, C++, Data Structure, Data Mining, Machine Learning, Deep Learning,  Advanced Program Design and Experiment, Algorithmic Design & Analysis
+        - Economics: Microeconomics, Macroeconomics, Economic Management of Computer Application, Econometrics, Money and Banking
+research:
+  - position: Director of Cloud Infrastructure
+    company_name: GenCoin
+    company_url: ''
+    company_logo: ''
+    date_start: 2021-01-01
+    date_end: ''
+    summary: |2-
+      Responsibilities include:
+      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - position: Backend Software Engineer
+    company_name: X
+    company_url: ''
+    company_logo: ''
 #     date_start: 2016-01-01
 #     date_end: 2020-12-31
 #     summary: |
@@ -158,11 +158,9 @@ skills:
 
 languages:
   - name: English
-    percent: 100
+
   - name: Chinese
-    percent: 75
-  - name: Portuguese
-    percent: 25
+
 
 # Awards.
 #   Add/remove as many awards below as you like.
