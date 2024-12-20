@@ -1,7 +1,7 @@
 ---
-title: Miku
+title: christmas_trees
 date: 2024-12-20
 external_link: ''
-tags: model
+tags: drawing
 ---
 <!--more-->

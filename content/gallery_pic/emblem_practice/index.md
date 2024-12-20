@@ -1,7 +1,7 @@
 ---
-title: Miku
+title: emblem_practice
 date: 2024-12-20
 external_link: ''
-tags: model
+tags: logo
 ---
 <!--more-->
