@@ -22,6 +22,9 @@ main:
   - name: Projects
     url: projects/
     weight: 30
+  - name: Gallery
+    url: gallery/
+    weight: 40
   # - name: Teaching Assistant
   #   url: teaching/
   #   weight: 40
