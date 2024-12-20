@@ -85,64 +85,52 @@ education:
         - Computer Science: Python, C++, Data Structure, Data Mining, Machine Learning, Deep Learning,  Advanced Program Design and Experiment, Algorithmic Design & Analysis
         - Economics: Microeconomics, Macroeconomics, Economic Management of Computer Application, Econometrics, Money and Banking
 work:
-  - name: Research
-  - position: Director of Cloud Infrastructure
-    company_name: GenCoin
+  - position: Teaching Assistant of Advanced Operations Research
+    company_name: Prof. Bo Jiang (RIIS@SUFE)
     company_url: ''
     company_logo: ''
-    date_start: 2021-01-01
-    date_end: ''
-    summary: |2-
-      Responsibilities include:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - position: Backend Software Engineer
-    company_name: X
+    date_start: 2024-02
+    date_end: 2024-06
+    summary: |
+      - Syllabus: 
+        This course mainly focuses on the fields of Operations Research, including Optimization Theory, Integer Programming, Revenue Management, Constrained & Unconstrained Optimization, Robust Optimization.
+      - Responsibility:
+        online tutorial, weekly tutorial, assisting students with related questions and grading of the homework and exams.
+  - position: TA of OOAD (Object-Oriented Analysis and Design )
+    company_name: Prof. Bundit Laekhanukit (ITCS@SUFE)
     company_url: ''
     company_logo: ''
-#     date_start: 2016-01-01
-#     date_end: 2020-12-31
-#     summary: |
-#       Responsibilities include:
-#       - Migrated infrastructure to a new data center
-#       - lorem ipsum dolor sit amet, consectetur adipiscing elit
-#       - lorem ipsum dolor sit amet, consectetur adipiscing elit
+    date_start: 2023-09
+    date_end: 2024-01
+    summary: |
+      - Syllabus: 
+        This course mainly focuses on understanding the principles of object-oriented programming and design.
+      - Responsibility:
+        online tutorial, weely tutorial, assisting students with related questions and guiding the students to complete projects using Kotlin.
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
 skills:
-  - name: Technical Skills
+  - name: Programming Langrage
     items:
       - name: Python
-        description: ''
-        percent: 100
         icon: devicon-python-plain
       - name: R
-        description: ''
-        percent: 80
         icon: <i class="devicon-r-plain"></i>
       - name: Julia
-        description: ''
-        percent: 90
         icon: <i class="devicon-julia-plain-wordmark"></i>
-      - name: C++
-        description: ''
-        percent: 60
+      - name: C/C++
         icon: <i class="devicon-cplusplus-plain"></i>
-      - name: PyTorch & PyG
-        description: ''
-        percent: 100
-        icon: <i class="devicon-pytorch-original"></i>
-      - name: LaTex
-        description: ''
-        percent: 100
-        icon: <i class="devicon-latex-original"></i>
-      - name: Markdown
-        description: ''
-        percent: 100
-        icon: <i class="devicon-markdown-original"></i>
-
+      - name: MATLAB
+      - name: Kotlin
+  - name: Machine Learning
+    items:
+    - name: 'DL: PyTorch, PyG, PyTorch Lighting'
+    - name: 'ML: Scikit-Learn'
+    - name: 'RL: Gym, Issac Gym'
+  - name: Operations Research
+    items: 
+    - name: COPT, Gurobi, SCIP, HIGHS, OR-Tools, JuMP, CVX. CPLEX
   - name: Hobbies
     color: '#eeac02'
     color_border: '#f0bf23'
