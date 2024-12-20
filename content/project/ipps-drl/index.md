@@ -1,7 +1,7 @@
 ---
 title: DRL4IPPS
 date: 2023-10-26
-external_link: https://arxiv.org/abs/2409.00968
+external_link: ''
 tags:
   - Application
   - Reinforcement Learning

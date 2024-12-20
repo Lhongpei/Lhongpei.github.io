@@ -1,7 +1,7 @@
 ---
 title: PDHCG
 date: 2024-04-01
-external_link: http://arxiv.org/abs/2405.16160
+external_link: ''
 tags:
   - Methodology
   - Optimization
