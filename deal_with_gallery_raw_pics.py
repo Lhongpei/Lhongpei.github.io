@@ -1,11 +1,10 @@
 import os 
 import time
 
-def generate_index_file(name, label, time_today = True):
-    yyyy_mm_dd = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+def generate_index_file(name, label, time_input):
     index_file = f'''---
 title: {name}
-date: {yyyy_mm_dd}
+date: {time_input}
 external_link: ''
 tags: {label}
 ---
@@ -16,6 +15,7 @@ tags: {label}
 archive_root = 'D:\\photo\\archive'
 target_root = 'content\\gallery_pic'
 rewrite = True
+time_type_file = True
 if rewrite:
     os.system('rmdir /s/q %s' % target_root)
     os.makedirs(target_root)
@@ -37,7 +37,13 @@ for subdir in subdirs:
             pic_path = os.path.join(subdir_path, pic)
             pic_target_file_path = os.path.join(pic_target_path, 'featured.png')
             os.system('copy %s %s' % (pic_path, pic_target_file_path))
+            if not time_type_file:
+                yyyy_mm_dd = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+                time_input = yyyy_mm_dd
+            else:
+                # get time from file
+                time_input = time.strftime('%Y-%m-%d', time.localtime(os.path.getmtime(pic_path)))
             with open(os.path.join(pic_target_path, 'index.md'), 'w', encoding='utf-8') as f:
-                f.write(generate_index_file(pic_name, subdir, time_today = True))
+                f.write(generate_index_file(pic_name, subdir, time_input = time_input))
             
             
