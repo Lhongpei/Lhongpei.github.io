@@ -24,7 +24,7 @@ sections:
         color: black
         image:
           # Add your image background to `assets/media/`.
-          filename: bg.png
+          filename: bg.jpg
           filters:
             brightness: 0.6
           size: cover
