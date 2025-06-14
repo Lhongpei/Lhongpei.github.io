@@ -54,7 +54,7 @@ sections:
       subtitle: ''
       text: |-
         <h3 style="display: flex; align-items: center; gap: 0.5rem; margin: 0;">
-          <img src="/uploads/icon.png" width="24" style="margin: 0;" />
+          <img src="/uploads/icon.png" width="30" style="margin: 0;" />
           About Me
         </h3>
 
