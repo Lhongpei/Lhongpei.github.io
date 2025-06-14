@@ -50,16 +50,30 @@ sections:
         
   - block: markdown
     content:
-      title: '📚 My Research'
+      title: ''
       subtitle: ''
       text: |-
+        ### <img src="uploads/icon.png" width="24" style="vertical-align: middle; margin-right: 0.5rem;"> About Me
+
+
+        I am currently pursuing my Bachelor's degree at Shanghai University of Finance and Economics (2021.9 - 2025.6), specializing in the Interdisciplinary Science Experimental Class.
+
+        My coursework includes Optimization, Operations Management, Algorithm Design, and Machine Learning.
+
+        My research interests include Optimization and Artificial Intelligence. 😊
+
+        <!--col-->
+
+        ### 📚 My Research
+
         My research interests include Optimization, Artificial Intelligence and the Interdisciplinary of Operations Research and Machine Learning. 
-        
+
         Currently, I'm exploring the intersection of optimization and generative models.
 
         Please reach out to collaborate 😃
     design:
-      columns: '1'
+      columns: '2'
+      
   - block: markdown
     content:
       title: 'Skills & Hobbies'
