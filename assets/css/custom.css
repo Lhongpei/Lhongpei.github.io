@@ -1,6 +1,0 @@
-.section,
-.main-content,
-.content-block {
-  max-width: 1200px !important;  /* 你可以改成 1400px 或 100% 看效果 */
-  margin: 0 auto;
-}
