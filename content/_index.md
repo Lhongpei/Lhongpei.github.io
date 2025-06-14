@@ -24,10 +24,10 @@ sections:
         color: black
         image:
           # Add your image background to `assets/media/`.
-          filename: background.jpeg
+          filename: bg.png
           filters:
             brightness: 0.6
-          size: contain
+          size: cover
           position: center
           parallax: true
 # sections:
