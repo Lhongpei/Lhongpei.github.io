@@ -29,7 +29,7 @@ sections:
             brightness: 0.6
           size: cover
           position: center
-          parallax: false
+          parallax: true
 # sections:
 #   - block: resume-biography
 #     content:
