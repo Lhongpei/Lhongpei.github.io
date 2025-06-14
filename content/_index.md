@@ -53,7 +53,10 @@ sections:
       title: ''
       subtitle: ''
       text: |-
-        ### <img src="uploads/icon.png" width="24" style="vertical-align: middle; margin-right: 0.5rem;"> About Me
+        <h3 style="display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+          <img src="/uploads/icon.png" width="24" style="margin: 0;" />
+          About Me
+        </h3>
 
 
         I am currently pursuing my Bachelor's degree at Shanghai University of Finance and Economics (2021.9 - 2025.6), specializing in the Interdisciplinary Science Experimental Class.
