@@ -8,28 +8,46 @@ design:
   # Default section spacing
   spacing: "6rem"
 
+# sections:
+#   - block: resume-biography-3
+#     content:
+#       # Choose a user profile to display (a folder name within `content/authors/`)
+#       username: admin
+#       text: ""
+#       # Show a call-to-action button under your biography? (optional)
+#       button:
+#         text: Download CV
+#         url: uploads/resume.pdf
+#     design:
+#       css_class: dark
+#       background:
+#         color: black
+#         image:
+#           # Add your image background to `assets/media/`.
+#           filename: bg.jpg
+#           filters:
+#             brightness: 0.6
+#           size: cover
+#           position: center
+#           parallax: false
 sections:
   - block: resume-biography
     content:
-      # Choose a user profile to display (a folder name within `content/authors/`)
+      # The user's folder name in `content/authors/`
       username: admin
-      text: ""
       # Show a call-to-action button under your biography? (optional)
+      # To link to a file, upload it to your `static/uploads/` folder
       button:
         text: Download CV
         url: uploads/resume.pdf
     design:
-      css_class: dark
-      background:
-        color: black
-        image:
-          # Add your image background to `assets/media/`.
-          filename: bg.jpg
-          filters:
-            brightness: 0.6
-          size: cover
-          position: center
-          parallax: false
+      banner:
+        # Upload a cover image to `assets/media/` folder and reference its filename here (optional)
+        filename: 'bg.jpg'
+      biography:
+        # Customize the CSS style of your biography text (optional)
+        style: ''
+        
   - block: markdown
     content:
       title: '📚 My Research'
