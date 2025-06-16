@@ -5,7 +5,8 @@ Categories:
 - Guide  
 - LLM  
 Commentable: true  
-series:
+series: configure machine
+pager: true
 ---
 
 _This blog is a work in progress. Feel free to ask questions in the comments!_  

@@ -12,7 +12,7 @@ sections:
   - block: collection
     content:
       title: Gallery
-      text: 'I often draw simple pictures to relax myself and there are some drafts, logos and also some photographs'
+      text: 'I will share some of my previous works about my interests here.'
       count: 0
       filters:
         folders:
