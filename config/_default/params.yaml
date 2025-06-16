@@ -55,9 +55,11 @@ locale:
 # Site features
 features:
   math:
-    enable: false
+    enable: true
   privacy_pack:
     enable: false
 
 customCSS:
   - css/custom.css
+
+commentable: true

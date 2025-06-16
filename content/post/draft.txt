@@ -1,0 +1,15 @@
+---
+title: "您的博客标题"  # 必填项
+date: 2025-06-16      # 必填项，建议格式YYYY-MM-DD或YYYY-M-D
+author: "作者名"      # 可选
+categories:           # 可选，分类/标签
+  - "分类1"
+  - "分类2"
+tags:                 # 可选
+  - "标签1"
+  - "标签2"
+description: "文章简短描述"  # 可选，用于SEO
+image: "/path/to/header-image.jpg"  # 可选，标题图片
+draft: true           # 可选，是否为草稿
+slug: "custom-url"    # 可选，自定义URL
+---
