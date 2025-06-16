@@ -58,22 +58,21 @@ features:
     enable: true
   privacy_pack:
     enable: false
+  comment:
+    provider: giscus
+    giscus:
+      repo: "Lhongpei/Lhongpei.github.io"
+      repo_id: "R_kgDONKAqgA"
+      category: "Announcements"
+      category_id: "DIC_kwDONKAqgM4CrkxJ"
+      theme: preferred_color_scheme
+      language_code: en  # or zh-CN for Chinese
+      mapping: pathname
+      reactions_enabled: true
+      emit_metadata: false
+      input_position: top
+      lazy_loading: true
+      strict: false
 
 customCSS:
   - css/custom.css
-
-comment:
-  provider: giscus
-  giscus:
-    repo: "Lhongpei/Lhongpei.github.io"
-    repo_id: "R_kgDONKAqgA"
-    category: "Announcements"
-    category_id: "DIC_kwDONKAqgM4CrkxJ"
-    theme: preferred_color_scheme
-    language_code: zh-CN
-    mapping: pathname
-    reactions_enabled: true
-    emit_metadata: false
-    input_position: top
-    lazy_loading: true
-    strict: false
