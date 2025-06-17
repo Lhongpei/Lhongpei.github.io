@@ -69,17 +69,162 @@ Host llm_server
 ```  
 
 **Usage**:  
+
 ```bash
 ssh llm_server  
 ```  
 
 This will be convenient for using!
 
-
-
 ##  Connect with VS Code (Optional)
+
 1. Install the **Remote - SSH** extension in VS Code.  
 2. Press `F1` > **Remote-SSH: Connect to Host** > Select `llm_server`.  
+
+This process is same for `Cursor`.
+
+## Configure to use Github/Git
+
+If you want use github to manage your repository, then you can follow this part to configure it.
+
+
+### Configure Git
+
+1. Install Git from this [website](https://git-scm.com/) and use `git --version` to validate.
+2. Configure user's information by
+    ```
+    git config --global user.name "Your Name"
+    git config --global user.email "your@email.com"
+    ```
+
+
+### SSH connection
+
+
+1. Copy your public key as before `cat ~/.ssh/id_rsa.pub`.
+2. Add it to Github.
+   1. Navigate to Settings > SSH and GPG keys
+   2. Click “New SSH key”, then paste the copied content
+
+Then you can use this command to test SSH connection.
+
+```
+ssh -T git@github.com
+```
+
+### Usage
+
+#### Vscode
+
+1. **Open VS Code**
+2. Click the **"Accounts"** icon in the lower-left corner (or your avatar in the bottom-right corner)
+3. Select **"Sign in with GitHub"**
+4. Authorize the login in your browser when prompted
+5. Wait for VS Code to automatically configure your GitHub account connection
+
+Then you can use UI in vscode to use Git.
+
+#### Terminal
+
+For easy usage, I list common git command here:
+
+---
+
+## 🧱 Initialization & Configuration
+
+| Purpose               | Command                                            |
+| --------------------- | -------------------------------------------------- |
+| Initialize a Git repo | `git init`                                         |
+| Set global username   | `git config --global user.name "Your Name"`        |
+| Set global email      | `git config --global user.email "you@example.com"` |
+| View current config   | `git config --list`                                |
+
+---
+
+## 🔗 Remote Repositories
+
+| Purpose             | Command                                              |
+| ------------------- | ---------------------------------------------------- |
+| Add a remote origin | `git remote add origin git@github.com:user/repo.git` |
+| View remote URLs    | `git remote -v`                                      |
+| Change remote URL   | `git remote set-url origin NEW_URL`                  |
+
+---
+
+## 📥 Clone / Pull / Sync
+
+| Purpose              | Command                                  |
+| -------------------- | ---------------------------------------- |
+| Clone a repository   | `git clone git@github.com:user/repo.git` |
+| Pull latest changes  | `git pull`                               |
+| Pull specific branch | `git pull origin branch-name`            |
+
+---
+
+## 📤 Add, Commit & Push
+
+| Purpose              | Command                        |
+| -------------------- | ------------------------------ |
+| Stage a file         | `git add filename`             |
+| Stage all changes    | `git add .`                    |
+| Commit changes       | `git commit -m "Your message"` |
+| Push to remote       | `git push`                     |
+| Push specific branch | `git push origin branch-name`  |
+
+---
+
+## 🌿 Branch Management
+
+| Purpose                  | Command                       |
+| ------------------------ | ----------------------------- |
+| List all branches        | `git branch`                  |
+| Create a new branch      | `git branch branch-name`      |
+| Switch to a branch       | `git checkout branch-name`    |
+| Create and switch branch | `git checkout -b branch-name` |
+| Merge a branch           | `git merge branch-name`       |
+| Delete a branch          | `git branch -d branch-name`   |
+
+---
+
+## 📜 Status & Log
+
+| Purpose             | Command                     |
+| ------------------- | --------------------------- |
+| View current status | `git status`                |
+| View commit history | `git log`                   |
+| Compact graph log   | `git log --oneline --graph` |
+
+---
+
+## 🛠️ Undo / Restore
+
+| Purpose                            | Command                    |
+| ---------------------------------- | -------------------------- |
+| Unstage a file                     | `git reset HEAD filename`  |
+| Discard changes in a file          | `git checkout -- filename` |
+| Undo last commit (keep changes)    | `git reset --soft HEAD^`   |
+| Undo last commit (discard changes) | `git reset --hard HEAD^`   |
+
+---
+
+## 📦 Tagging
+
+| Purpose       | Command                  |
+| ------------- | ------------------------ |
+| Create a tag  | `git tag v1.0`           |
+| List tags     | `git tag`                |
+| Push a tag    | `git push origin v1.0`   |
+| Push all tags | `git push origin --tags` |
+
+---
+
+## 🧪 Diffs & Comparison
+
+| Purpose                                      | Command                    |
+| -------------------------------------------- | -------------------------- |
+| Compare working directory and staged changes | `git diff`                 |
+| Compare staged and last commit               | `git diff --cached`        |
+| Compare two commits                          | `git diff commit1 commit2` |
 
 ---
 
