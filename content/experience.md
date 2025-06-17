@@ -18,6 +18,25 @@ sections:
       date_format: 'January 2006'
       # Education or Experience section first?
       is_education_first: true
+  - block: markdown
+    content:
+      title: 'Skills & Hobbies'
+      text: |-
+        - **Programming Languages:**  
+          - Python, C/C++, Julia, MATLAB, R, Kotlin  
+
+        - **Frameworks and Tools:**  
+          - **Machine Learning:** 
+            - PyTorch, PyTorch Geometric (PyG), PyTorch Lightning, Scikit-learn, Gym, Isaac Gym  
+          - **Operations Research:** 
+            - COPT, Gurobi, SCIP, HIGHS, OR-Tools, JuMP, CVX  
+          - **Document Formatting:** 
+            - LaTeX, Markdown, Typst  
+          - **Others:** 
+            - NumPy, Pandas, CUDA, CPython, JuliaCall, PythonCall, Shell, SSH, Git, YAML, JSON, Office, Photoshop  
+
+        - **Hobbies:**  
+          - Drawing, Biking, Skiing, Photography, Puzzle, Assembled Model, Coffee  
   # - block: resume-skills
   #   content:
   #     title: Skills & Hobbies
