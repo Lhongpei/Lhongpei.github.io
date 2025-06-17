@@ -112,7 +112,7 @@ sections:
   - block: collection
     id: papers
     content:
-      title: Recent Publications
+      title: ""
       text: ""
       filters:
         folders:
