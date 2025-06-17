@@ -93,14 +93,9 @@ sections:
   #     view: article-grid
   #     columns: 2
   - block: collection
-    id: papers
     content:
       title: Recent Publications
       text: ""
-      filters:
-        folders:
-          - publication
-        exclude_featured: false
     design:
       view: citation
       css_class: dark
@@ -114,6 +109,19 @@ sections:
           size: cover
           position: center
           parallax: true
+  - block: collection
+    id: papers
+    content:
+      title: Recent Publications
+      text: ""
+      filters:
+        folders:
+          - publication
+        exclude_featured: false
+    design:
+      view: citation
+      css_class: dark
+
   # - block: collection
   #   id: talks
   #   content:
