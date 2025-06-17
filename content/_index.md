@@ -92,7 +92,7 @@ sections:
   #   design:
   #     view: article-grid
   #     columns: 2
-  - block: collection
+  - block: markdown
     content:
       title: Recent Publications
       text: ""
