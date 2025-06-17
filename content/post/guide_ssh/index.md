@@ -130,7 +130,7 @@ For easy usage, I list common git command here:
 
 ---
 
-## 🧱 Initialization & Configuration
+🧱 Initialization & Configuration
 
 | Purpose               | Command                                            |
 | --------------------- | -------------------------------------------------- |
@@ -141,7 +141,7 @@ For easy usage, I list common git command here:
 
 ---
 
-## 🔗 Remote Repositories
+🔗 Remote Repositories
 
 | Purpose             | Command                                              |
 | ------------------- | ---------------------------------------------------- |
@@ -151,7 +151,7 @@ For easy usage, I list common git command here:
 
 ---
 
-## 📥 Clone / Pull / Sync
+📥 Clone / Pull / Sync
 
 | Purpose              | Command                                  |
 | -------------------- | ---------------------------------------- |
@@ -161,7 +161,7 @@ For easy usage, I list common git command here:
 
 ---
 
-## 📤 Add, Commit & Push
+📤 Add, Commit & Push
 
 | Purpose              | Command                        |
 | -------------------- | ------------------------------ |
@@ -173,7 +173,7 @@ For easy usage, I list common git command here:
 
 ---
 
-## 🌿 Branch Management
+🌿 Branch Management
 
 | Purpose                  | Command                       |
 | ------------------------ | ----------------------------- |
@@ -186,7 +186,7 @@ For easy usage, I list common git command here:
 
 ---
 
-## 📜 Status & Log
+📜 Status & Log
 
 | Purpose             | Command                     |
 | ------------------- | --------------------------- |
@@ -196,7 +196,7 @@ For easy usage, I list common git command here:
 
 ---
 
-## 🛠️ Undo / Restore
+🛠️ Undo / Restore
 
 | Purpose                            | Command                    |
 | ---------------------------------- | -------------------------- |
@@ -207,7 +207,7 @@ For easy usage, I list common git command here:
 
 ---
 
-## 📦 Tagging
+📦 Tagging
 
 | Purpose       | Command                  |
 | ------------- | ------------------------ |
@@ -218,7 +218,7 @@ For easy usage, I list common git command here:
 
 ---
 
-## 🧪 Diffs & Comparison
+🧪 Diffs & Comparison
 
 | Purpose                                      | Command                    |
 | -------------------------------------------- | -------------------------- |
