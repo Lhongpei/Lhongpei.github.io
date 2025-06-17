@@ -73,7 +73,7 @@ sections:
 
         Currently, I am particularly focused on:
 
-        * Developing optimization algorithms to enhance the training and inference efficiency of large language models (LLMs)
+        * Developing optimization-based framework to enhance the training and inference efficiency of large language models (LLMs)
         * Accelerating classical optimization methods by leveraging AI techniques that learn from historical data
         * Designing and implementing efficient optimization algorithms for large-scale problems, with a particular focus on GPU-accelerated methods
     design:
