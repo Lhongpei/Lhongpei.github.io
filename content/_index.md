@@ -97,7 +97,6 @@ sections:
       title: Recent Publications
       text: ""
     design:
-      view: citation
       css_class: dark
       background:
         color: black
@@ -120,7 +119,6 @@ sections:
         exclude_featured: false
     design:
       view: citation
-      css_class: dark
 
   # - block: collection
   #   id: talks
