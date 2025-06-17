@@ -63,8 +63,6 @@ sections:
 
         My coursework includes Optimization, Operations Management, Algorithm Design, and Machine Learning.
 
-        My research interests include Optimization and Artificial Intelligence. 😊
-
         <!--col-->
 
         ### 📚 My Research
