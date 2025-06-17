@@ -9,12 +9,10 @@ series: configure server
 pager: true
 ---
 
-_This blog is a work in progress. Feel free to ask questions in the comments!_  
-
-This guide will walk you through setting up a server or cluster for deep learning tasks, particularly for Large Language Models (LLMs). The content was originally documented in my `wolai` notes and is now shared here.  
+_This guide will walk you through setting up a server or cluster for deep learning tasks, particularly for Large Language Models (LLMs). The content was originally documented in my `wolai` notes and is now shared here. Feel free to ask questions in the comments!_
 
 
-## **Prerequisites**  
+## Prerequisites
 Before starting, ensure you have:  
 1. The server IP address (e.g., `111.111.111.111`) and login credentials from your administrator.  
 2. Terminal access (Linux/macOS) or an SSH client (e.g., PuTTY for Windows).  
@@ -23,7 +21,7 @@ Before starting, ensure you have:
 ## Configure SSH for Password-Free Login
 Repeatedly entering passwords is tedious. Here’s how to set up SSH key-based authentication:  
 
-### **1. Generate an SSH Key Pair**  
+### 1. Generate an SSH Key Pair 
 Run the following in your **local machine’s terminal**:  
 ```bash
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
@@ -31,7 +29,7 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 - Press `Enter` to accept the default file location (`~/.ssh/id_rsa`).  
 - Optional: Add a passphrase for extra security.  
 
-### **2. Copy the Public Key**  
+### 2. Copy the Public Key 
 Display and copy your public key (`id_rsa.pub`):  
 ```bash
 cat ~/.ssh/id_rsa.pub
