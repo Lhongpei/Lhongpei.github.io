@@ -103,6 +103,17 @@ sections:
         exclude_featured: false
     design:
       view: citation
+      css_class: dark
+      background:
+        color: black
+        image:
+          # Add your image background to `assets/media/`.
+          filename: bg.jpg
+          filters:
+            brightness: 0.6
+          size: cover
+          position: center
+          parallax: true
   # - block: collection
   #   id: talks
   #   content:
