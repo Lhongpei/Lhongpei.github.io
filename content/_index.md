@@ -69,33 +69,17 @@ sections:
 
         ### 📚 My Research
 
-        My research interests include Optimization, Artificial Intelligence and the Interdisciplinary of Operations Research and Machine Learning. 
+        My research interests include **Optimization**, **Artificial Intelligence (AI)**, and the **interdisciplinary area between Operations Research and Machine Learning**.
 
-        Currently, I'm exploring the intersection of optimization and generative models.
+        Currently, I am particularly focused on:
 
-        Please reach out to collaborate 😃
+        * Developing optimization algorithms to enhance the training and inference efficiency of large language models (LLMs)
+        * Accelerating classical optimization methods by leveraging AI techniques that learn from historical data
+        * Designing and implementing efficient optimization algorithms for large-scale problems, with a particular focus on GPU-accelerated methods
     design:
       columns: '2'
       
-  - block: markdown
-    content:
-      title: 'Skills & Hobbies'
-      text: |-
-        - **Programming Languages:**  
-          - Python, C/C++, Julia, MATLAB, R, Kotlin  
 
-        - **Frameworks and Tools:**  
-          - **Machine Learning:** 
-            - PyTorch, PyTorch Geometric (PyG), PyTorch Lightning, Scikit-learn, Gym, Isaac Gym  
-          - **Operations Research:** 
-            - COPT, Gurobi, SCIP, HIGHS, OR-Tools, JuMP, CVX  
-          - **Document Formatting:** 
-            - LaTeX, Markdown, Typst  
-          - **Others:** 
-            - NumPy, Pandas, CUDA, CPython, JuliaCall, PythonCall, Shell, SSH, Git, YAML, JSON, Office, Photoshop  
-
-        - **Hobbies:**  
-          - Drawing, Biking, Skiing, Photography, Puzzle, Assembled Model, Coffee  
 
 
 
