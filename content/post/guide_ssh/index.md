@@ -1,11 +1,11 @@
 ---
-Title: Setting Up Your Server/Cluster for Deep Learning and LLMs (Part I)  
+Title: Configure Your Server (Part I) -- SSH and Git
 Date: 2025-06-16  
 Categories:
 - Guide  
 - LLM  
 Commentable: true  
-series: configure machine
+series: configure server
 pager: true
 ---
 
