@@ -15,7 +15,8 @@ Sometimes, PyTorch might not natively support a specific operation you need, or 
 
 First, let's write the CUDA kernel and its PyTorch wrapper. For this example, we'll implement an element-wise multiplication kernel. Create a file named ```elementwise_mult.cu``` inside ```my_kernel/kernel/```.
 
-```// elementwise_mult.cu
+```python
+// elementwise_mult.cu
 // my_kernel/kernel/elementwise_mult.cu
 #include <torch/extension.h>
 #include <cuda_runtime.h>
@@ -102,7 +103,7 @@ PYBIND11_MODULE(elementwise_mult, m) {
 
 To compile your CUDA kernel and link it with PyTorch, you'll need `pyproject.toml` and `setup.py` files. Assume your directory structure is as follows:
 
-```md
+```bash
 root/
 ├── pyproject.toml    # new
 ├── setup.py          # new
@@ -113,7 +114,7 @@ root/
 ```
 
 `pyproject.toml`: This file specifies the build system requirements.
-```
+```toml
 # pyproject.toml
 [build-system]
 requires = ["setuptools", "wheel", "torch"]
@@ -121,7 +122,7 @@ build-backend = "setuptools.build_meta"
 ```
 
 `setup.py`: This script uses `setuptools` and PyTorch's `torch.utils.cpp_extension` to define how your extension module is built.
-```
+```python
 # setup.py
 from setuptools import setup
 from torch.utils.cpp_extension import CUDAExtension, BuildExtension
@@ -145,14 +146,14 @@ setup(
 
 Now, navigate to your `root` directory in the terminal and run the following command to compile and install your custom kernel in editable mode:
 run
-```
+```bash
 pip install -e .
 ```
 The `-e` flag (editable mode) means that changes to your source files (like `elementwise_mult.cu`) will be reflected without needing to reinstall, though you'll need to re-run the `pip install -e .` command if you modify `setup.py` or add/remove source files.
 
 To clean up build artifacts and cache:
 
-```
+```bash
 python setup.py clean
 ```
 
@@ -160,7 +161,7 @@ python setup.py clean
 ## Step 3: Usage
 
 Here is a simple example.
-```
+```python
 import torch
 import elementwise_mult
 
@@ -180,7 +181,7 @@ print(torch.allclose(result, a * b))
 For your custom operation to integrate seamlessly into PyTorch's computational graph and support automatic differentiation, you need to wrap it in a `torch.autograd.Function`. This involves defining `forward` and `backward` methods.
 
 Create a Python file, for example, `my_kernel/__init__.py`, and add the following code.
-```
+```python
 # my_kernel/__init__.py
 import torch
 from torch.autograd import Function
@@ -265,7 +266,7 @@ def elementwise_mult(a, b):
 
 Now you can use your custom element-wise multiplication operation in your PyTorch code, and it will be fully differentiable!
 
-```
+```python
 import torch
 from my_kernel import elementwise_mult
 
