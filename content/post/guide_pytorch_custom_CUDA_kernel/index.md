@@ -15,7 +15,7 @@ Sometimes, PyTorch might not natively support a specific operation you need, or 
 
 First, let's write the CUDA kernel and its PyTorch wrapper. For this example, we'll implement an element-wise multiplication kernel. Create a file named ```elementwise_mult.cu``` inside ```my_kernel/kernel/```.
 
-```python
+```cpp
 // elementwise_mult.cu
 // my_kernel/kernel/elementwise_mult.cu
 #include <torch/extension.h>
@@ -47,7 +47,7 @@ void elementwise_mult_torch(
     torch::Tensor b,
     torch::Tensor result // The output tensor, pre-allocated by PyTorch
 ) {
-    // Perform checks on input tensors to ensure they meet the kernel's requirements.
+    // Perform checks on input tensors to ensure they meet the  requirements.
     CHECK_CUDA(a);
     CHECK_CUDA(b);
     CHECK_CUDA(result);
