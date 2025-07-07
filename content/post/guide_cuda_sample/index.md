@@ -4,6 +4,7 @@ Date: 2025-06-17
 Categories:
 - Guide  
 - LLM  
+- GPU
 Commentable: true  
 ---
 
