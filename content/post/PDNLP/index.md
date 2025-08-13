@@ -1,6 +1,6 @@
 ---
 Title: Accelerating Nonlinear Programming on GPUs
-Date: 2025-07-07
+Date: 2025-08-12
 Categories:
 - Guide  
 - LLM  
