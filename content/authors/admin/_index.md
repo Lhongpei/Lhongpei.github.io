@@ -47,8 +47,6 @@ profiles:
     url: https://orcid.org/0009-0000-3001-8883
 
 interests:
-  - Artificial Intelligence
-  - Operation Research
   - Optimization
 
 education:

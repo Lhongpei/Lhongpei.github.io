@@ -67,12 +67,10 @@ sections:
 
         ### 📚 My Research
 
-        My research interests include **Optimization**, **Artificial Intelligence (AI)**, and the **interdisciplinary area between Operations Research and Machine Learning**.
+        My research interests include **Optimization**, especially efficient algorithms for large-scale problems.
 
         Currently, I am particularly focused on:
 
-        * Developing optimization-based framework to enhance the training and inference efficiency of large language models (LLMs)
-        * Accelerating classical optimization methods by leveraging AI techniques that learn from historical data
         * Designing and implementing efficient optimization algorithms for large-scale problems, with a particular focus on GPU-accelerated methods
     design:
       columns: '2'
