@@ -20,11 +20,11 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Incoming PhD Student @ Northwestern IEMS
+role: Large-Scale Optimization
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: Northwestern University
+  - name: Incoming PhD Student @ Northwestern IEMS
     url: https://www.iems.northwestern.edu/
 
 # Social network links

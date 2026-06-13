@@ -1,0 +1,50 @@
+<script>
+(function () {
+  // Phrases cycled by the typing animation on the role line.
+  var PHRASES = [
+    "Large-Scale Optimization",
+    "GPU-Accelerated Algorithms",
+    "LLM Systems",
+    "AI for Optimization"
+  ];
+
+  function start() {
+    var el = document.querySelector('h3.font-semibold.mb-1');
+    if (!el || el.dataset.typedAttached) return;
+    el.dataset.typedAttached = "1";
+
+    el.style.minHeight = '1.6em';
+    var textNode = document.createTextNode('');
+    var cursor = document.createElement('span');
+    cursor.textContent = '|';
+    cursor.style.fontWeight = '300';
+    cursor.style.marginLeft = '1px';
+    el.textContent = '';
+    el.appendChild(textNode);
+    el.appendChild(cursor);
+
+    var p = 0, i = 0, deleting = false;
+    function tick() {
+      var full = PHRASES[p];
+      if (!deleting) {
+        textNode.nodeValue = full.slice(0, ++i);
+        if (i === full.length) { deleting = true; return setTimeout(tick, 1700); }
+      } else {
+        textNode.nodeValue = full.slice(0, --i);
+        if (i === 0) { deleting = false; p = (p + 1) % PHRASES.length; }
+      }
+      setTimeout(tick, deleting ? 40 : 80);
+    }
+    setInterval(function () {
+      cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+    }, 530);
+    tick();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', start);
+  } else {
+    start();
+  }
+})();
+</script>
