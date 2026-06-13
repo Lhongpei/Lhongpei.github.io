@@ -28,7 +28,6 @@ abstract: Large-scale competitive market equilibrium problems arise in a wide ra
   expanding the practical solvable scale and applicability of market equilibrium models.
 tags:
 - Mathematics - Optimization and Control
-links:
-- name: URL
-  url: http://arxiv.org/abs/2506.06258
+url_pdf: https://arxiv.org/pdf/2506.06258
+url_code: https://github.com/Lhongpei/PDNLP
 ---

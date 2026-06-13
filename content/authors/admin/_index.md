@@ -20,12 +20,12 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Undergraduate
+role: Incoming PhD Student @ Northwestern IEMS
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: Shanghai University of Finance and Economics
-    url: https://www.sufe.edu.cn/
+  - name: Northwestern University
+    url: https://www.iems.northwestern.edu/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
@@ -33,8 +33,6 @@ profiles:
   - icon: at-symbol
     url: 'ishongpeili@gmail.com'
     label: E-mail Me
-  - icon: brands/x
-    url: https://x.com/HongpeiL81679
   # - icon: brands/instagram
   #   url: https://www.instagram.com/
   - icon: brands/github
@@ -70,6 +68,12 @@ education:
   #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
   #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
   #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - area: PhD in Industrial Engineering & Management Sciences
+    institution: Northwestern University
+    date_start: 2026-09-01
+    date_end: ''
+    summary: |
+      Incoming PhD student, starting Fall 2026.
   - area: BE Data Science and Big Data Technology
     # class: Interdisciplinary Science Experimental Class
     institution: Pilot Class of Research Institute for Interdisciplinary Science at Shanghai University of Finance and Economics
@@ -83,6 +87,15 @@ education:
         - Computer Science: Python, C++, Data Structure, Data Mining, Machine Learning, Deep Learning,  Advanced Program Design and Experiment, Algorithmic Design & Analysis
         - Economics: Microeconomics, Macroeconomics, Economic Management of Computer Application, Econometrics, Money and Banking
 work:
+  - position: LLM & OPT Researcher
+    company_name: QingTian Lab, Cardinal Operations
+    company_url: 'https://www.shanshu.ai/'
+    company_logo: ''
+    date_start: 2025-02-01
+    date_end: ''
+    summary: |
+      - `LLM Systems`: Research on infrastructure optimization for large-scale LLM training.
+      - `Optimization`: Research on GPU-accelerated parallel optimization algorithms.
   - position: Teaching Assistant of Advanced Operations Research
     company_name: Prof. Bo Jiang (RIIS@SUFE)
     company_url: ''

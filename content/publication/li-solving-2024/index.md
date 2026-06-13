@@ -32,7 +32,6 @@ tags:
 - Computer Science - Artificial Intelligence
 - Computer Science - Machine Learning
 - Mathematics - Optimization and Control
-links:
-- name: URL
-  url: http://arxiv.org/abs/2409.00968
+url_pdf: https://arxiv.org/pdf/2409.00968
+url_code: https://github.com/Lhongpei/ipps-drl
 ---

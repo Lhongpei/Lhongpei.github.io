@@ -30,7 +30,6 @@ abstract: The automatic configuration of Mixed-Integer Programming (MIP) optimiz
   of BenLOC in providing unbiased and comprehensive evaluations.
 tags:
 - Mathematics - Optimization and Control
-links:
-- name: URL
-  url: http://arxiv.org/abs/2506.02752
+url_pdf: https://arxiv.org/pdf/2506.02752
+url_code: https://github.com/Lhongpei/BenLOC
 ---
