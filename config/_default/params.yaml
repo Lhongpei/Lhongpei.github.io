@@ -14,8 +14,8 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: 'The highly-customizable Hugo Academic theme powered by Hugo Blox Builder. Easily create your personal academic website.'
-    twitter: 'GetResearchDev'
+    description: "Hi, I'm Hongpei Li. Welcome to my website — feel free to reach out with any ideas!"
+    twitter: ''
   analytics:
     google_analytics: ''
     baidu_tongji: ''
@@ -39,10 +39,11 @@ header:
 
 # Site footer
 footer:
+  text: "Hi, I'm Hongpei Li. Welcome to my website — feel free to reach out with any ideas!"
   copyright:
-    notice: '© {year} Me. This work is licensed under {license}'
+    notice: ''
     license:
-      enable: true
+      enable: false
       allow_derivatives: false
       share_alike: true
       allow_commercial: false
