@@ -34,7 +34,7 @@ sections:
           <div class="sw-card">
             <div class="sw-head"><h3 class="sw-title">PDHCG</h3><span class="sw-ver" data-repo="Lhongpei/PDHCG-II">v0.2.1</span></div>
             <p class="sw-desc">A GPU-Accelerated First Order Solver for Convex QP (also support Multi-GPU).</p>
-            <div class="sw-tags"><span>CUDA</span><span>GPU</span><span>Multi-GPU</span><span>Quadratic Programming</span></div>
+            <div class="sw-tags"><span>GPU</span><span>Multi-GPU</span><span>FOM</span><span>Quadratic Programming</span></div>
             <div class="sw-links">
               <a class="sw-btn" href="https://github.com/Lhongpei/PDHCG-II" target="_blank" rel="noopener">★ Code</a>
               <a class="sw-btn ghost" href="https://arxiv.org/abs/2602.23967" target="_blank" rel="noopener">Paper</a>
@@ -44,7 +44,7 @@ sections:
           <div class="sw-card">
             <div class="sw-head"><h3 class="sw-title">D-PDLP</h3><span class="sw-ver" data-repo="Lhongpei/D-PDLP">v0.0.3</span></div>
             <p class="sw-desc">A First-Order LP Solver Accelerated on Multiple GPUs.</p>
-            <div class="sw-tags"><span>CUDA</span><span>Multi-GPU</span><span>Linear Programming</span></div>
+            <div class="sw-tags"><span>GPU</span><span>Multi-GPU</span><span>FOM</span><span>Linear Programming</span></div>
             <div class="sw-links">
               <a class="sw-btn" href="https://github.com/Lhongpei/D-PDLP" target="_blank" rel="noopener">★ Code</a>
               <a class="sw-btn ghost" href="https://arxiv.org/abs/2601.07628" target="_blank" rel="noopener">Paper</a>
