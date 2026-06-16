@@ -9,7 +9,9 @@
   ];
 
   function start() {
-    var el = document.querySelector('h3.font-semibold.mb-1');
+    // Exact class match so only the homepage role line is targeted
+    // (the Experience page's job titles also carry font-semibold + mb-1).
+    var el = document.querySelector('h3[class="font-semibold mb-1"]');
     if (!el || el.dataset.typedAttached) return;
     el.dataset.typedAttached = "1";
 

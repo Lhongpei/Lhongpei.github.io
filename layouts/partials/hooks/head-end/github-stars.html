@@ -1,0 +1,30 @@
+<script>
+(function () {
+  function fillStars() {
+    document.querySelectorAll('.sw-stars[data-repo]').forEach(function (el) {
+      fetch('https://api.github.com/repos/' + el.getAttribute('data-repo'))
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          if (d && typeof d.stargazers_count === 'number') el.textContent = d.stargazers_count;
+        })
+        .catch(function () { /* keep fallback */ });
+    });
+  }
+  function fillVersions() {
+    document.querySelectorAll('.sw-ver[data-repo]').forEach(function (el) {
+      fetch('https://api.github.com/repos/' + el.getAttribute('data-repo') + '/releases/latest')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          if (d && d.tag_name) el.textContent = d.tag_name;
+        })
+        .catch(function () { /* keep fallback */ });
+    });
+  }
+  function load() { fillStars(); fillVersions(); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', load);
+  } else {
+    load();
+  }
+})();
+</script>
