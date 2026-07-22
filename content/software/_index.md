@@ -33,7 +33,7 @@ sections:
         <div class="sw-grid">
           <div class="sw-card">
             <div class="sw-head"><h3 class="sw-title">CARDAL</h3><span class="sw-ver" data-repo="Lhongpei/CARDAL">v0.1.0</span></div>
-            <p class="sw-desc">A Curvature-Aware Rank-Adaptive Distributed Augmented-Lagrangian Solver for Large-Scale SDPs.</p>
+            <p class="sw-desc">A Low-Rank ALM Solver for Large-Scale SDPs with Multi-GPU Acceleration.</p>
             <div class="sw-tags"><span>GPU</span><span>Multi-GPU</span><span>Low-Rank</span><span>Semidefinite Programming</span></div>
             <div class="sw-links">
               <a class="sw-btn" href="https://github.com/Lhongpei/CARDAL" target="_blank" rel="noopener">★ Code</a>
