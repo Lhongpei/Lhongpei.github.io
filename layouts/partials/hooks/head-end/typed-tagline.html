@@ -15,6 +15,13 @@
     if (!el || el.dataset.typedAttached) return;
     el.dataset.typedAttached = "1";
 
+    // Keep a stable tagline when the visitor prefers reduced motion.
+    if (window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.textContent = PHRASES[0];
+      return;
+    }
+
     el.style.minHeight = '1.6em';
     var textNode = document.createTextNode('');
     var cursor = document.createElement('span');

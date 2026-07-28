@@ -14,7 +14,7 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: "Hi, I'm Hongpei Li. Welcome to my website — feel free to reach out with any ideas!"
+    description: "Hongpei Li is an incoming PhD student at Northwestern IEMS researching GPU-accelerated algorithms, large-scale optimization, and AI systems."
     twitter: ''
   analytics:
     google_analytics: ''
@@ -39,7 +39,7 @@ header:
 
 # Site footer
 footer:
-  text: "Hi, I'm Hongpei Li. Welcome to my website — feel free to reach out with any ideas!"
+  text: "[Email](mailto:ishongpeili@gmail.com) · [GitHub](https://github.com/Lhongpei) · [Google Scholar](https://scholar.google.com/citations?user=ZXiUF98AAAAJ)"
   copyright:
     notice: ''
     license:

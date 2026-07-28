@@ -29,7 +29,7 @@ sections:
           - **Machine Learning:** 
             - PyTorch, PyTorch Geometric (PyG), PyTorch Lightning, Scikit-learn, Gym, Isaac Gym  
           - **Operations Research:** 
-            - COPT, Gurobi, SCIP, HIGHS, OR-Tools, JuMP, CVX  
+            - COPT, Gurobi, SCIP, HiGHS, OR-Tools, JuMP, CVX
           - **Document Formatting:** 
             - LaTeX, Markdown, Typst  
           - **Others:** 

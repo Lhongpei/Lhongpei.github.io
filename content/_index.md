@@ -4,6 +4,11 @@ title: ""
 date: 2022-10-24
 type: landing
 
+image:
+  filename: sharing.jpg
+  focal_point: Smart
+  preview_only: true
+
 design:
   # Default section spacing
   spacing: "6rem"

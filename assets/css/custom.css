@@ -1,3 +1,11 @@
+/* Avoid fixed-background motion and repaint cost on small screens or when
+   visitors request reduced motion. */
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  .parallax {
+    background-attachment: scroll !important;
+  }
+}
+
 /* ===== Software cards ===== */
 .sw-grid {
   display: grid;

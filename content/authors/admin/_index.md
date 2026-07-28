@@ -31,7 +31,7 @@ organizations:
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'ishongpeili@gmail.com'
+    url: 'mailto:ishongpeili@gmail.com'
     label: E-mail Me
   # - icon: brands/instagram
   #   url: https://www.instagram.com/
@@ -117,12 +117,12 @@ work:
       - Syllabus: 
         This course mainly focuses on understanding the principles of object-oriented programming and design.
       - Responsibility:
-        online tutorial, weely tutorial, assisting students with related questions and guiding the students to complete projects using Kotlin.
+        online tutorial, weekly tutorial, assisting students with related questions and guiding the students to complete projects using Kotlin.
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
 skills:
-  - name: Programming Langrage
+  - name: Programming Languages
     items:
       - name: Python
       - name: R
@@ -147,7 +147,7 @@ skills:
     - name: 'COPT'
     - name: 'Gurobi'
     - name: 'SCIP'
-    - name: 'HIGHS'
+    - name: 'HiGHS'
     - name: 'OR-Tools'
     - name: 'JuMP'
     - name: 'CVX'
@@ -155,7 +155,7 @@ skills:
   - name: Formatting
     items:
     - name: Markdown
-    - name: LaTex
+    - name: LaTeX
     - name: Typst
   - name: Hobbies
     color: '#eeac02'
