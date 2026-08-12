@@ -1,26 +1,31 @@
 <script>
 (function () {
-  function fillStars() {
-    document.querySelectorAll('.sw-stars[data-repo]').forEach(function (el) {
-      fetch('https://api.github.com/repos/' + el.getAttribute('data-repo'))
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (d) {
-          if (d && typeof d.stargazers_count === 'number') el.textContent = d.stargazers_count;
-        })
-        .catch(function () { /* keep fallback */ });
+  function applyMetadata(data) {
+    var repositories = data && data.repositories;
+    if (!repositories) return;
+
+    document.querySelectorAll('.sw-stars[data-repo], .sw-ver[data-repo]').forEach(function (el) {
+      var metadata = repositories[el.getAttribute('data-repo')];
+      if (!metadata) return;
+
+      if (el.classList.contains('sw-stars') && Number.isInteger(metadata.stars)) {
+        el.textContent = metadata.stars;
+      } else if (el.classList.contains('sw-ver') && metadata.release) {
+        el.textContent = metadata.release;
+      }
     });
   }
-  function fillVersions() {
-    document.querySelectorAll('.sw-ver[data-repo]').forEach(function (el) {
-      fetch('https://api.github.com/repos/' + el.getAttribute('data-repo') + '/releases/latest')
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (d) {
-          if (d && d.tag_name) el.textContent = d.tag_name;
-        })
-        .catch(function () { /* keep fallback */ });
-    });
+
+  function load() {
+    fetch('{{ "github-software.json" | relURL }}?v={{ now.Unix }}', { cache: 'no-store' })
+      .then(function (response) {
+        if (!response.ok) throw new Error('software metadata request failed');
+        return response.json();
+      })
+      .then(applyMetadata)
+      .catch(function () { /* keep the values embedded in the page */ });
   }
-  function load() { fillStars(); fillVersions(); }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', load);
   } else {

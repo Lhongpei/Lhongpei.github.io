@@ -9,6 +9,9 @@ on:
     branches: ["main"]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
+  # Refresh GitHub stars and releases even when this repository has no new commits.
+  schedule:
+    - cron: '17 * * * *'
 
 # Provide permission to clone the repo and deploy it to GitHub Pages
 permissions:
@@ -45,6 +48,10 @@ jobs:
     - name: Setup Pages
       id: pages
       uses: actions/configure-pages@v5
+    - name: Refresh software metadata
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      run: python3 scripts/update_software_metadata.py
     - name: Build with Hugo
       env:
         HUGO_ENVIRONMENT: production
