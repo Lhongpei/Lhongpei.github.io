@@ -2,6 +2,6 @@
 title: emblem_practice
 date: 2024-12-20
 external_link: ''
-tags: logo
+tags: drawing
 ---
 <!--more-->

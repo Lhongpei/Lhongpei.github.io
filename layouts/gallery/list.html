@@ -1,0 +1,30 @@
+{{ define "main" }}
+<main class="gallery-shell">
+  <header class="gallery-header">
+    <p class="gallery-eyebrow">Beyond research</p>
+    <h1>{{ .Title }}</h1>
+    <p>Drawings, designs, models, and moments through my lens.</p>
+  </header>
+  <section aria-labelledby="photo-heading">
+    <h2 id="photo-heading">Photography</h2>
+    {{ $photos := where .RegularPages "Params.category" "photography" }}
+    {{ if $photos }}
+      <div class="album-grid">
+        {{ range $photos.ByDate.Reverse }}{{ partial "gallery/album-card.html" . }}{{ end }}
+      </div>
+    {{ else }}
+      <p class="gallery-empty">Photo journals are on their way.</p>
+    {{ end }}
+  </section>
+  <section class="gallery-section" aria-labelledby="art-heading">
+    <h2 id="art-heading">Art & Objects</h2>
+    <div class="album-grid">
+      {{ range .RegularPages.ByWeight }}
+        {{ if ne .Params.category "photography" }}
+          {{ partial "gallery/album-card.html" . }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </section>
+</main>
+{{ end }}

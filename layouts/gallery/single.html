@@ -1,0 +1,83 @@
+{{ define "main" }}
+<main class="gallery-shell">
+  <div class="gallery-topline">
+    <a class="gallery-back" href="{{ "gallery/" | relURL }}">← All albums</a>
+  </div>
+  <header class="gallery-header{{ if eq .Params.category "photography" }} gallery-photo-header{{ end }}">
+    {{ if eq .Params.category "photography" }}<p class="gallery-eyebrow">Photo journal <span aria-hidden="true">/</span> {{ .Date.Format "2006" }}</p>{{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+    {{ if eq .Params.category "photography" }}
+      <div class="gallery-detail-meta"><span><span class="gallery-meta-label">Date</span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time></span>{{ with .Params.location }}<span><span class="gallery-meta-label">Location</span>{{ . }}</span>{{ end }}</div>
+    {{ end }}
+    {{ with .Params.camera }}<div class="gallery-camera"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h4l2-3h4l2 3h4v13H4z"/><circle cx="12" cy="13" r="4"/></svg><span>Shot on <strong>{{ . }}</strong></span></div>{{ end }}
+  </header>
+  {{ with .Content }}<div class="gallery-intro">{{ . }}</div>{{ end }}
+  {{ if eq .Params.category "photography" }}
+    <section class="photo-player" aria-label="Photo slideshow" aria-roledescription="carousel" hidden>
+      <img class="photo-ambient" alt="" aria-hidden="true">
+      <a class="photo-stage" href="#" target="_blank" rel="noopener" aria-label="Open current photo at full size"><img alt=""></a>
+      <button class="photo-arrow photo-prev" type="button" data-action="prev" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+      <button class="photo-arrow photo-next" type="button" data-action="next" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+      <div class="photo-controls">
+        <button type="button" data-action="play" aria-label="Pause slideshow"><svg class="photo-pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg><svg class="photo-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7z"/></svg></button>
+        <span class="photo-count" aria-live="off"></span>
+        <a class="photo-original" href="#" target="_blank" rel="noopener" aria-label="View original photo">Original ↗</a>
+        <button type="button" data-action="fullscreen" aria-label="Enter fullscreen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button>
+      </div>
+      <div class="photo-progress" aria-label="Choose photo"></div>
+      <p class="photo-caption" hidden></p>
+    </section>
+    <div class="gallery-collection-heading"><h2>All frames</h2><span>{{ len .Params.photos }} photographs</span></div>
+  {{ end }}
+  <div class="gallery-works">
+    {{ with .Params.source_tag }}
+      {{ $tag := . }}
+      {{ range where site.RegularPages "Section" "gallery_pic" }}
+        {{ $tags := .Params.tags }}
+        {{ if or (eq $tags $tag) (in $tags $tag) }}
+          {{ $page := . }}
+          {{ with .Resources.GetMatch "featured*" }}
+            {{ $thumb := .Fit "1200x1200 webp" }}
+            <figure><a href="{{ .RelPermalink }}" aria-label="View {{ $page.Title }} at full size"><img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="{{ $page.Title }}" loading="lazy"></a><figcaption>{{ replace (replace $page.Title "_" " ") "&" " & " }}</figcaption></figure>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ else }}
+      {{ range .Params.photos }}
+        {{ $photo := . }}
+        {{ with $.Resources.GetMatch .src }}
+          {{ $thumb := .Fit "1600x1600 webp" }}
+          <figure><a class="photo-select" href="{{ .RelPermalink }}" aria-label="View photo at full size"><img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="{{ $photo.alt | default $photo.caption | default $.Title }}" loading="lazy"></a>{{ with $photo.caption }}<figcaption>{{ . }}</figcaption>{{ end }}</figure>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </div>
+  {{ if eq .Params.category "photography" }}
+    <dialog class="photo-lightbox" aria-label="Photo viewer">
+      <div class="lightbox-toolbar">
+        <span class="lightbox-count" aria-live="polite"></span>
+        <div class="lightbox-zoom-controls" aria-label="Image zoom">
+          <button type="button" data-lightbox="out" aria-label="Zoom out">−</button>
+          <button type="button" data-lightbox="reset" aria-label="Reset zoom">Fit</button>
+          <button type="button" data-lightbox="in" aria-label="Zoom in">+</button>
+        </div>
+        <a class="lightbox-download" download>Download original ↓</a>
+        <button type="button" data-lightbox="close" aria-label="Close photo viewer" autofocus>×</button>
+      </div>
+      <div class="lightbox-viewport" tabindex="0" aria-label="Photo; scroll to pan when zoomed">
+        <div class="lightbox-canvas"><img alt="" draggable="false"></div>
+      </div>
+      <div class="lightbox-bottom">
+        <button type="button" data-lightbox="prev" aria-label="Previous photo">←</button>
+        <p class="lightbox-caption" hidden></p>
+        <button type="button" data-lightbox="next" aria-label="Next photo">→</button>
+      </div>
+    </dialog>
+  {{ end }}
+</main>
+{{ if eq .Params.category "photography" }}
+  {{ $script := resources.Get "js/gallery-player.js" | minify | fingerprint }}
+  <script src="{{ $script.RelPermalink }}" defer></script>
+{{ end }}
+{{ end }}

@@ -1,0 +1,21 @@
+{{ $cover := .Resources.GetMatch (.Params.cover | default "featured*") }}
+{{ with .Params.cover_page }}
+  {{ with site.GetPage . }}{{ $cover = .Resources.GetMatch "featured*" }}{{ end }}
+{{ end }}
+<a class="album-card" href="{{ .RelPermalink }}">
+  {{ with $cover }}
+    {{ $thumb := .Fill "960x720 Center webp" }}
+    <img src="{{ $thumb.RelPermalink }}" width="960" height="720" alt="" loading="lazy">
+  {{ end }}
+  <div class="album-overlay">
+    <h3>{{ .Title }}</h3>
+    <div class="album-meta">
+      {{ if eq .Params.category "photography" }}
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+      {{ else }}
+        <span>{{ .Params.kind_label }}</span>
+      {{ end }}
+      {{ with .Params.location }}<span class="album-location">{{ . }}</span>{{ end }}
+    </div>
+  </div>
+</a>
