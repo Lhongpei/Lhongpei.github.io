@@ -47,9 +47,9 @@ sections:
         </h3>
 
 
-        I will join the Department of Industrial Engineering & Management Sciences (IEMS) at **Northwestern University** as a PhD student in **Fall 2026**.
+        I am a **first-year PhD student** in the Department of Industrial Engineering & Management Sciences (IEMS) at **Northwestern University**.
 
-        I received my Bachelor's degree from Shanghai University of Finance and Economics (2021.9 - 2025.6), in the Pilot Class of Interdisciplinary Sciences.
+        I received my Bachelor's degree from Shanghai University of Finance and Economics (September 2021 – June 2025), where I was advised by Prof. **[Yinyu Ye](https://stanford.edu/~yyye/)** and Prof. **[Dongdong Ge](https://acem.sjtu.edu.cn/en/faculty/gedongdong.html)**.
 
         <!--col-->
 

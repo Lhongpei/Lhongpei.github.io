@@ -24,7 +24,7 @@ role: Large-Scale Optimization
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: Incoming PhD Student @ Northwestern IEMS
+  - name: First-Year PhD Student @ Northwestern IEMS
     url: https://www.iems.northwestern.edu/
 
 # Social network links
@@ -73,7 +73,7 @@ education:
     date_start: 2026-09-01
     date_end: ''
     summary: |
-      Incoming PhD student, starting Fall 2026.
+      First-year PhD student, enrolled in Fall 2026.
   - area: BE Data Science and Big Data Technology
     # class: Interdisciplinary Science Experimental Class
     institution: Pilot Class of Research Institute for Interdisciplinary Science at Shanghai University of Finance and Economics
