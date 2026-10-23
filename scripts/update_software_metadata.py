@@ -17,7 +17,10 @@ ROOT = Path(__file__).resolve().parents[1]
 SOFTWARE_PAGE = ROOT / "content" / "software" / "_index.md"
 OUTPUT = ROOT / "static" / "github-software.json"
 API_ROOT = "https://api.github.com/repos"
-REPO_PATTERN = re.compile(r'data-repo="([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)"')
+REPO_FIELD_PATTERN = re.compile(r"^[ \t]+repo:[ \t]*(.+)$", re.MULTILINE)
+REPO_VALUE_PATTERN = re.compile(
+    r"(['\"]?)([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)\1(?:[ \t]+#.*)?"
+)
 
 
 def request_json(url: str, token: str, attempts: int = 3) -> dict:
@@ -41,7 +44,20 @@ def request_json(url: str, token: str, attempts: int = 3) -> dict:
 
 
 def find_repositories() -> list[str]:
-    repositories = REPO_PATTERN.findall(SOFTWARE_PAGE.read_text(encoding="utf-8"))
+    page = SOFTWARE_PAGE.read_text(encoding="utf-8")
+    frontmatter = re.match(r"\A---\r?\n(.*?)\r?\n---(?:\r?\n|\Z)", page, re.DOTALL)
+    if not frontmatter:
+        raise RuntimeError("Software page is missing YAML front matter")
+
+    # Project repository names are single-line fields in the page configuration.
+    repositories = []
+    for value in REPO_FIELD_PATTERN.findall(frontmatter.group(1)):
+        match = REPO_VALUE_PATTERN.fullmatch(value.strip())
+        if not match:
+            raise RuntimeError(f"Invalid software repository: {value!r}")
+        repositories.append(match.group(2))
+    if not repositories:
+        raise RuntimeError("No software repositories found; refusing to publish empty metadata")
     return sorted(set(repositories))
 
 
@@ -61,35 +77,13 @@ def build_metadata(token: str) -> dict:
     }
 
 
-def update_embedded_values(metadata: dict) -> None:
-    page = SOFTWARE_PAGE.read_text(encoding="utf-8")
-    for repository, values in metadata["repositories"].items():
-        replacements = (("sw-stars", "stars"), ("sw-ver", "release"))
-        for css_class, key in replacements:
-            pattern = re.compile(
-                rf'(<span class="{css_class}" data-repo="{re.escape(repository)}">)'
-                r"[^<]*(</span>)"
-            )
-            page, count = pattern.subn(
-                lambda match: f"{match.group(1)}{values[key]}{match.group(2)}",
-                page,
-            )
-            if count != 1:
-                raise RuntimeError(
-                    f"Expected one {css_class} element for {repository}, found {count}"
-                )
-
-    SOFTWARE_PAGE.write_text(page, encoding="utf-8")
-
-
 def main() -> None:
     metadata = build_metadata(os.environ.get("GITHUB_TOKEN", ""))
-    update_embedded_values(metadata)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
     print(
         f"Updated {len(metadata['repositories'])} repositories in "
-        f"{SOFTWARE_PAGE.relative_to(ROOT)} and {OUTPUT.relative_to(ROOT)}"
+        f"{OUTPUT.relative_to(ROOT)}"
     )
 
 
