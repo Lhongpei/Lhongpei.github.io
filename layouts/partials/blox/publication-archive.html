@@ -1,0 +1,53 @@
+{{ $content := .wcBlock.content }}
+{{ $publications := (where site.RegularPages "Section" "publication").ByDate.Reverse }}
+{{ $years := $publications.GroupByDate "2006" }}
+{{ $owner := site.GetPage "/authors/admin" }}
+{{ $landscape := resources.Get "media/bg.jpg" }}
+{{ $landscapeLarge := $landscape.Fit "1440x960 webp" }}
+{{ $landscapeSmall := $landscape.Fit "720x480 webp" }}
+<div class="papers-hero" data-scroll-hero>
+  <div class="papers-hero-photo" data-hero-photo aria-hidden="true">
+    <img src="{{ $landscapeLarge.RelPermalink }}" srcset="{{ $landscapeSmall.RelPermalink }} 720w, {{ $landscapeLarge.RelPermalink }} 1440w" sizes="(max-width: 640px) 36vw, 42vw" width="{{ $landscapeLarge.Width }}" height="{{ $landscapeLarge.Height }}" alt="" decoding="async">
+  </div>
+  <header class="papers-shell papers-header">
+    <div>
+      <p class="bio-eyebrow">Optimization & Machine Learning</p>
+      <h1>{{ $content.title }}</h1>
+      <p class="papers-description">{{ $content.description }}</p>
+    </div>
+    <div class="papers-overview">
+      {{ range where $owner.Params.profiles "icon" "academicons/google-scholar" }}
+        <a class="papers-scholar" href="{{ .url }}" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">↗</span></a>
+      {{ end }}
+      <p>{{ len $publications }} papers{{ with $years }} <span aria-hidden="true">/</span> {{ (index . (sub (len .) 1)).Key }}–{{ (index . 0).Key }}{{ end }}</p>
+    </div>
+  </header>
+</div>
+{{ partial "portfolio/hero-motion.html" . }}
+<div class="papers-shell" data-filter-collection data-filter-param="topic" data-filter-singular="paper" data-filter-plural="papers">
+  {{ partial "portfolio/filters.html" (dict "pages" $publications "kind" "topic" "plural" "papers" "results_id" "research-results") }}
+  {{ with $years }}
+  <nav class="papers-year-nav" aria-label="Browse papers by year">
+    <span class="papers-nav-label">Browse by year</span>
+    {{ range . }}
+      <a href="#year-{{ .Key }}" data-filter-year="year-{{ .Key }}" aria-label="{{ .Key }}: {{ len .Pages }} {{ if eq (len .Pages) 1 }}paper{{ else }}papers{{ end }}"><span>{{ .Key }}</span><span class="papers-year-count">{{ len .Pages }}</span><span class="papers-year-arrow" aria-hidden="true">↓</span></a>
+    {{ end }}
+  </nav>
+
+  <div class="papers-years" id="research-results">
+    {{ range . }}
+    <section class="papers-year" id="year-{{ .Key }}" data-filter-group="{{ .Key }}" aria-labelledby="heading-{{ .Key }}">
+      <header class="papers-year-label">
+        <h2 id="heading-{{ .Key }}">{{ .Key }}</h2>
+        <p data-filter-group-count>{{ len .Pages }} {{ if eq (len .Pages) 1 }}paper{{ else }}papers{{ end }}</p>
+      </header>
+      <div class="papers-year-list">
+        {{ range .Pages }}
+          {{ partial "views/citation.html" (dict "item" . "grouped" true) }}
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+  </div>
+  {{ end }}
+</div>

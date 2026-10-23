@@ -1,0 +1,25 @@
+{{ $content := .wcBlock.content }}
+{{ $posts := (where site.RegularPages "Section" "post").ByDate.Reverse }}
+{{ partial "portfolio/hero.html" (dict "content" $content "link_url" "post/index.xml" "link_label" "RSS feed" "meta" (printf "%d articles" (len $posts))) }}
+<div class="catalog-shell catalog-body" data-filter-collection data-filter-param="tag" data-filter-singular="article" data-filter-plural="articles">
+  <header class="catalog-list-heading"><h2>All articles</h2><span>Newest first</span></header>
+  {{ partial "portfolio/filters.html" (dict "pages" $posts "kind" "tag" "plural" "articles" "results_id" "journal-results") }}
+  <div class="journal-grid" id="journal-results">
+    {{ range $index, $post := $posts }}
+    <article class="catalog-card journal-card{{ if eq $index 0 }} journal-card-featured{{ end }}" data-filter-values="{{ partial "portfolio/filter-values.html" (dict "page" . "kind" "tag") | jsonify }}">
+      <div class="journal-kicker">
+        {{ with .Params.topic }}<p class="journal-topic">{{ . }}</p>{{ end }}
+        {{ if eq $index 0 }}<span class="journal-latest">Latest article</span>{{ end }}
+      </div>
+      <div class="journal-copy">
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p class="journal-summary">{{ .Summary | plainify | htmlUnescape | truncate 220 }}</p>
+      </div>
+      <footer class="journal-footer">
+        <div class="journal-date"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time><span>{{ .ReadingTime }} min read</span></div>
+        <span class="journal-arrow" aria-hidden="true">↗</span>
+      </footer>
+    </article>
+    {{ end }}
+  </div>
+</div>

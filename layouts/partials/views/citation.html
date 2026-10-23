@@ -1,0 +1,17 @@
+{{ $item := .item }}
+{{ $grouped := .grouped | default false }}
+<article class="paper-entry"{{ if $grouped }} data-filter-values="{{ partial "portfolio/filter-values.html" (dict "page" $item "kind" "topic") | jsonify }}"{{ end }}>
+  <div class="paper-heading">
+    <h3 class="paper-title"><a href="{{ $item.RelPermalink }}">{{ $item.Title }}</a></h3>
+    {{ if partial "functions/has_attachments" $item }}
+    <nav class="paper-links" aria-label="Resources for {{ $item.Title }}">
+      {{ partial "page_links" (dict "page" $item "is_list" 1) }}
+    </nav>
+    {{ end }}
+  </div>
+  <div class="paper-details">
+    <p class="paper-authors">{{ partial "portfolio/authors.html" $item }}</p>
+    <p class="paper-venue">{{ with $item.Params.publication_short | default $item.Params.publication }}{{ . | markdownify }}{{ if not $grouped }} <span aria-hidden="true">·</span> {{ end }}{{ end }}{{ if not $grouped }}<time datetime="{{ $item.Date.Format "2006-01-02" }}">{{ $item.Date.Format "2006" }}</time>{{ end }}</p>
+  </div>
+  {{ partial "portfolio/author-notes.html" $item }}
+</article>

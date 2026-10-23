@@ -1,5 +1,7 @@
 ---
 title: 'FMIP: Joint Continuous-Integer Flow For Mixed-Integer Linear Programming'
+research_topics:
+- AI for Optimization
 authors:
 - Hongpei Li
 - Hui Yuan

@@ -1,0 +1,107 @@
+{{ $page := .wcPage }}
+{{ $content := .wcBlock.content }}
+{{ $person := site.GetPage (printf "/authors/%s" ($content.username | default "admin")) }}
+{{ $landscape := resources.Get "media/background.jpeg" }}
+{{ $landscapeLarge := $landscape.Fit "1440x960 webp" }}
+{{ $landscapeSmall := $landscape.Fit "720x480 webp" }}
+
+<div class="experience-hero" data-scroll-hero>
+  <div class="experience-hero-photo" data-hero-photo aria-hidden="true">
+    <img src="{{ $landscapeLarge.RelPermalink }}" srcset="{{ $landscapeSmall.RelPermalink }} 720w, {{ $landscapeLarge.RelPermalink }} 1440w" sizes="(max-width: 640px) 40vw, 42vw" width="{{ $landscapeLarge.Width }}" height="{{ $landscapeLarge.Height }}" alt="" decoding="async">
+  </div>
+  <header class="experience-shell experience-header">
+    <div>
+      <p class="bio-eyebrow">Academic journey</p>
+      <h1>{{ $content.title }}</h1>
+      <p class="experience-description">{{ $content.description }}</p>
+    </div>
+    <div class="experience-cv">
+      <a href="{{ $content.cv_url | relURL }}" target="_blank" rel="noopener">Download CV <span aria-hidden="true">↗</span></a>
+      <p>Curriculum vitae · PDF</p>
+    </div>
+  </header>
+</div>
+{{ partial "portfolio/hero-motion.html" . }}
+
+<div class="experience-shell experience-body">
+  <nav class="experience-nav" aria-label="Experience sections">
+    <a href="#education"><span aria-hidden="true">01</span> Education</a>
+    <a href="#research-teaching"><span aria-hidden="true">02</span> Research & teaching</a>
+    <a href="#skills-interests"><span aria-hidden="true">03</span> Skills & interests</a>
+  </nav>
+
+  <section class="experience-section" id="education" aria-labelledby="education-title">
+    <header class="experience-section-heading">
+      <p class="bio-eyebrow">01 / Background</p>
+      <h2 id="education-title">Education</h2>
+    </header>
+    <ol class="experience-timeline">
+      {{ range $person.Params.education }}
+      <li class="experience-entry">
+        <div class="experience-entry-heading">
+          <h3>{{ .institution_short | default .institution }}</h3>
+          {{ partial "experience/dates.html" . }}
+        </div>
+        <p class="experience-role">{{ .area }}</p>
+        {{ with .program }}<p class="experience-program">{{ . }}</p>{{ end }}
+        {{ with .highlights }}
+        <ul class="experience-highlights">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+        {{ end }}
+        {{ if .details_label }}
+          <details class="experience-details">
+            <summary>{{ .details_label }}<span aria-hidden="true">+</span></summary>
+            <div class="experience-prose">{{ .summary | $page.RenderString }}</div>
+          </details>
+        {{ else }}
+          {{ with .summary }}<div class="experience-prose">{{ . | $page.RenderString }}</div>{{ end }}
+        {{ end }}
+      </li>
+      {{ end }}
+    </ol>
+  </section>
+
+  <section class="experience-section" id="research-teaching" aria-labelledby="work-title">
+    <header class="experience-section-heading">
+      <p class="bio-eyebrow">02 / Practice</p>
+      <h2 id="work-title">Research<span> & teaching</span></h2>
+    </header>
+    <ol class="experience-timeline">
+      {{ range $person.Params.work }}
+      <li class="experience-entry">
+        <div class="experience-entry-heading">
+          <h3>{{ .position_short | default .position }}</h3>
+          {{ partial "experience/dates.html" . }}
+        </div>
+        <p class="experience-role">{{ if .company_url }}<a href="{{ .company_url }}" target="_blank" rel="noopener">{{ .company_name }} <span aria-hidden="true">↗</span></a>{{ else }}{{ .company_name }}{{ end }}</p>
+        {{ with .summary_short }}<p class="experience-summary">{{ . }}</p>{{ end }}
+        {{ if .details_label }}
+          <details class="experience-details">
+            <summary>{{ .details_label }}<span aria-hidden="true">+</span></summary>
+            <div class="experience-prose">{{ .summary | $page.RenderString }}</div>
+          </details>
+        {{ else }}
+          {{ with .summary }}<div class="experience-prose">{{ . | $page.RenderString }}</div>{{ end }}
+        {{ end }}
+      </li>
+      {{ end }}
+    </ol>
+  </section>
+
+  <section class="experience-section" id="skills-interests" aria-labelledby="skills-title">
+    <header class="experience-section-heading">
+      <p class="bio-eyebrow">03 / Toolkit</p>
+      <h2 id="skills-title">Skills<span> & interests</span></h2>
+    </header>
+    <div>
+      <dl class="experience-skills">
+        {{ range $content.skills }}
+        <div><dt>{{ .title }}</dt><dd>{{ delimit .items ", " }}</dd></div>
+        {{ end }}
+      </dl>
+      <div class="experience-interests">
+        <div class="experience-interests-heading"><h3>Outside research</h3><a href="{{ "gallery/" | relURL }}">Photo gallery <span aria-hidden="true">↗</span></a></div>
+        <ul>{{ range $content.interests }}<li>{{ . }}</li>{{ end }}</ul>
+      </div>
+    </div>
+  </section>
+</div>

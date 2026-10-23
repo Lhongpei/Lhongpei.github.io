@@ -1,53 +1,73 @@
 <script>
 (function () {
-  // Phrases cycled by the typing animation on the role line.
-  var PHRASES = [
-    "Large-Scale Optimization",
-    "GPU-Accelerated Algorithms",
-    "LLM Systems",
-    "AI for Optimization"
+  'use strict';
+  var phrases = [
+    'Large-Scale Optimization',
+    'GPU-Accelerated Algorithms',
+    'LLM Systems',
+    'AI for Optimization'
   ];
 
   function start() {
-    // Exact class match so only the homepage role line is targeted
-    // (the Experience page's job titles also carry font-semibold + mb-1).
-    var el = document.querySelector('h3[class="font-semibold mb-1"]');
+    var el = document.querySelector('[data-bio-typewriter]');
     if (!el || el.dataset.typedAttached) return;
-    el.dataset.typedAttached = "1";
+    el.dataset.typedAttached = '1';
 
-    // Keep a stable tagline when the visitor prefers reduced motion.
-    if (window.matchMedia &&
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      el.textContent = PHRASES[0];
-      return;
+    var line = el.closest('.bio-tagline');
+    var cursor = line.querySelector('.bio-tagline-cursor');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var phrase = 0;
+    var count = phrases[0].length;
+    var deleting = true;
+    var visible = true;
+    var timer;
+
+    function running() { return visible && !document.hidden && !reduced.matches; }
+    function queue(delay) {
+      if (running()) timer = window.setTimeout(tick, delay);
     }
-
-    el.style.minHeight = '1.6em';
-    var textNode = document.createTextNode('');
-    var cursor = document.createElement('span');
-    cursor.textContent = '|';
-    cursor.style.fontWeight = '300';
-    cursor.style.marginLeft = '1px';
-    el.textContent = '';
-    el.appendChild(textNode);
-    el.appendChild(cursor);
-
-    var p = 0, i = 0, deleting = false;
     function tick() {
-      var full = PHRASES[p];
-      if (!deleting) {
-        textNode.nodeValue = full.slice(0, ++i);
-        if (i === full.length) { deleting = true; return setTimeout(tick, 1700); }
+      if (!running()) return;
+      var full = phrases[phrase];
+      count += deleting ? -1 : 1;
+      el.textContent = full.slice(0, count);
+      if (!deleting && count === full.length) {
+        deleting = true;
+        queue(1700);
+      } else if (deleting && count === 0) {
+        deleting = false;
+        phrase = (phrase + 1) % phrases.length;
+        queue(250);
       } else {
-        textNode.nodeValue = full.slice(0, --i);
-        if (i === 0) { deleting = false; p = (p + 1) % PHRASES.length; }
+        queue(deleting ? 40 : 80);
       }
-      setTimeout(tick, deleting ? 40 : 80);
     }
-    setInterval(function () {
-      cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
-    }, 530);
-    tick();
+    function update() {
+      window.clearTimeout(timer);
+      if (reduced.matches) {
+        phrase = 0;
+        count = phrases[0].length;
+        deleting = true;
+        el.textContent = phrases[0];
+      }
+      cursor.hidden = reduced.matches;
+      line.classList.toggle('is-typing', running());
+      queue(1700);
+    }
+
+    // Keep the full fallback phrase for screen readers and without JavaScript.
+    // The animated span is aria-hidden, so keystrokes are never announced.
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+        update();
+      }).observe(line);
+    }
+    document.addEventListener('visibilitychange', update);
+    reduced.addEventListener('change', update);
+    window.addEventListener('pagehide', function () { window.clearTimeout(timer); });
+    window.addEventListener('pageshow', update);
+    update();
   }
 
   if (document.readyState === 'loading') {

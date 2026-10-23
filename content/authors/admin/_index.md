@@ -77,6 +77,10 @@ education:
   - area: BE Data Science and Big Data Technology
     # class: Interdisciplinary Science Experimental Class
     institution: Pilot Class of Research Institute for Interdisciplinary Science at Shanghai University of Finance and Economics
+    institution_short: Shanghai University of Finance and Economics
+    program: Pilot Class · Research Institute for Interdisciplinary Science
+    highlights: ['GPA 3.77/4.0', 'Class rank 5/18']
+    details_label: Academic details & coursework
     date_start: 2021-09-01
     date_end: 2025-06-30
     summary: |
@@ -92,11 +96,14 @@ work:
     company_url: 'https://www.shanshu.ai/'
     company_logo: ''
     date_start: 2025-02-01
-    date_end: ''
+    date_end: 2026-07-31
     summary: |
       - `LLM Systems`: Research on infrastructure optimization for large-scale LLM training.
       - `Optimization`: Research on GPU-accelerated parallel optimization algorithms.
   - position: Teaching Assistant of Advanced Operations Research
+    position_short: Teaching Assistant · Advanced Operations Research
+    summary_short: Supported online and weekly tutorials, answered student questions, and graded homework and exams.
+    details_label: Course topics & responsibilities
     company_name: Prof. Bo Jiang (RIIS@SUFE)
     company_url: ''
     company_logo: ''
@@ -108,6 +115,9 @@ work:
       - Responsibility:
         online tutorial, weekly tutorial, assisting students with related questions and grading of the homework and exams.
   - position: TA of OOAD (Object-Oriented Analysis and Design )
+    position_short: Teaching Assistant · Object-Oriented Analysis & Design
+    summary_short: Supported tutorials and student questions, and guided course projects in Kotlin.
+    details_label: Course topics & responsibilities
     company_name: Prof. Bundit Laekhanukit (ITCS@SUFE)
     company_url: ''
     company_logo: ''

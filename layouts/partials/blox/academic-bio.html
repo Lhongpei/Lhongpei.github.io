@@ -1,0 +1,76 @@
+{{ $page := .wcPage }}
+{{ $content := .wcBlock.content }}
+{{ $person := site.GetPage (printf "/authors/%s" ($content.username | default "admin")) }}
+{{ $labels := dict "at-symbol" "Email" "brands/github" "GitHub" "brands/linkedin" "LinkedIn" "academicons/google-scholar" "Google Scholar" "academicons/orcid" "ORCID" }}
+{{ $landscape := resources.Get "media/background.jpeg" }}
+{{ $landscapeLarge := $landscape.Fit "1920x1280 webp" }}
+{{ $landscapeSmall := $landscape.Fit "960x640 webp" }}
+
+<div class="bio-intro-scene">
+  <div class="bio-intro-landscape" aria-hidden="true">
+    <img src="{{ $landscapeLarge.RelPermalink }}" srcset="{{ $landscapeSmall.RelPermalink }} 960w, {{ $landscapeLarge.RelPermalink }} 1920w" sizes="(max-width: 640px) 100vw, 50vw" alt="" width="{{ $landscapeLarge.Width }}" height="{{ $landscapeLarge.Height }}" decoding="async">
+  </div>
+<div class="bio-shell">
+  <div class="bio-intro">
+    <div class="bio-copy">
+      <p class="bio-eyebrow">{{ $content.eyebrow }}</p>
+      <h1>{{ $person.Title }}</h1>
+      <p class="bio-affiliation">{{ $content.role }}<span aria-hidden="true">/</span><a href="{{ $content.affiliation_url }}" target="_blank" rel="noopener">{{ $content.affiliation }}</a></p>
+      <div class="bio-lead">{{ $content.introduction | $page.RenderString }}</div>
+      <div class="bio-background">{{ $content.background | $page.RenderString }}</div>
+      <div class="bio-actions">
+        {{ with $content.button }}<a class="bio-cv" href="{{ .url | relURL }}" target="_blank" rel="noopener">{{ .text }}<span aria-hidden="true">↗</span></a>{{ end }}
+        <a class="bio-research-link" href="#research">Explore my research <span aria-hidden="true">↓</span></a>
+      </div>
+      <nav class="bio-profiles" aria-label="Contact and academic profiles">
+        {{ range $person.Params.profiles }}
+          <a href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener"{{ end }}>{{ index $labels .icon | default .label | default .icon }}</a>
+        {{ end }}
+      </nav>
+    </div>
+    <div class="bio-profile">
+      {{ with $person.Resources.GetMatch "*avatar*" }}
+        {{ $portrait := .Fit "480x672 webp" }}
+        <figure class="bio-portrait">
+          <img src="{{ $portrait.RelPermalink }}" width="{{ $portrait.Width }}" height="{{ $portrait.Height }}" alt="Portrait of {{ $person.Title }}" fetchpriority="high">
+        </figure>
+      {{ end }}
+      <p class="bio-tagline">
+        <span class="sr-only">Research interests: Large-Scale Optimization, GPU-Accelerated Algorithms, LLM Systems, and AI for Optimization.</span>
+        <span data-bio-typewriter aria-hidden="true">Large-Scale Optimization</span><span class="bio-tagline-cursor" aria-hidden="true" hidden></span>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+{{ with $content.research }}
+<section id="research" class="bio-research" aria-labelledby="research-title">
+  <div class="bio-research-backdrop" aria-hidden="true">
+    <img src="{{ $landscapeLarge.RelPermalink }}" srcset="{{ $landscapeSmall.RelPermalink }} 960w, {{ $landscapeLarge.RelPermalink }} 1920w" sizes="100vw" alt="" width="{{ $landscapeLarge.Width }}" height="{{ $landscapeLarge.Height }}" decoding="async">
+  </div>
+  <div class="bio-shell bio-research-layout">
+    <header class="bio-section-intro" data-bio-reveal>
+      <p class="bio-eyebrow">Areas of focus</p>
+      <h2 id="research-title">{{ .title }}</h2>
+      <p class="bio-research-summary">{{ .summary }}</p>
+    </header>
+    <ol class="bio-directions">
+      {{ range $index, $area := .areas }}
+      <li data-bio-reveal>
+        <a class="bio-direction-link" href="{{ printf "%s?%s" ("publication/" | relURL) (querify "topic" $area.title) }}" aria-labelledby="bio-topic-{{ add $index 1 }}">
+          <span class="bio-direction-number" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
+          <div>
+            <h3 id="bio-topic-{{ add $index 1 }}">{{ $area.title }}</h3>
+            <p>{{ $area.text }}</p>
+          </div>
+          <span class="bio-direction-arrow" aria-hidden="true">→</span>
+        </a>
+      </li>
+      {{ end }}
+    </ol>
+  </div>
+</section>
+{{ end }}
+{{ $motion := resources.Get "js/bio-scroll.js" | minify | fingerprint }}
+<script src="{{ $motion.RelPermalink }}" defer></script>

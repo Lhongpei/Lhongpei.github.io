@@ -1,0 +1,114 @@
+{{/* Conceptual diagrams adapted from the linked papers, not benchmark traces.
+  D-PDLP: arXiv:2601.07628v3, Fig. 1 and Sec. 3.2 (R is vertical; C is horizontal).
+  CARDAL: arXiv:2607.17933, Eq. (1) and Sec. 3. The illustrative Gram matrix
+  is computed from fixed toy factors; the added column gives a PSD rank-one update.
+  PDHCG: primal-dual cycle and the simplified conic QP supplied by the site author.
+*/}}
+<svg class="solver-art" viewBox="0 0 320 190" fill="none" aria-hidden="true" focusable="false">
+  {{ if eq . "rank-adaptive" }}
+  {{ $factor := slice (slice 0.8 0.1) (slice 0.2 0.8) (slice 0.7 0.5) (slice 0.3 0.6) }}
+  {{ $direction := slice 0.2 0.45 0.1 0.35 }}
+  <text class="solver-math cardal-symbol" x="30" y="25" text-anchor="middle">F</text>
+  <text class="solver-math cardal-symbol" x="124" y="25" text-anchor="middle">X</text>
+  <path class="solver-guide" d="M8 36H4V104H8M57 36H61V104H57M68 70H83M77 64L83 70L77 76" />
+  <g class="cardal-factor">
+    {{ range $row := seq 0 3 }}
+      {{ range $column := seq 0 1 }}
+      <rect x="{{ add 10 (mul $column 16) }}" y="{{ add 39 (mul $row 16) }}" width="12" height="13" rx="2" fill="currentColor" fill-opacity="{{ add 0.12 (mul 0.55 (index (index $factor $row) $column)) }}" />
+      {{ end }}
+    {{ end }}
+  </g>
+  <rect x="42" y="36" width="12" height="68" rx="3" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="2 3" />
+  <g class="rank-new-column">
+    {{ range $row := seq 0 3 }}
+    <rect x="42" y="{{ add 39 (mul $row 16) }}" width="12" height="13" rx="2" fill="currentColor" fill-opacity="{{ add 0.3 (mul 0.6 (index $direction $row)) }}" />
+    {{ end }}
+  </g>
+  <rect x="90" y="36" width="67" height="68" rx="5" stroke="currentColor" stroke-opacity=".35" />
+  {{ range $row := seq 0 3 }}
+    {{ range $column := seq 0 3 }}
+    {{ $gram := add (mul (index (index $factor $row) 0) (index (index $factor $column) 0)) (mul (index (index $factor $row) 1) (index (index $factor $column) 1)) }}
+    {{ $initial := add 0.08 (mul 0.65 $gram) }}
+    {{ $expanded := add $initial (mul 0.65 (mul (index $direction $row) (index $direction $column))) }}
+    <rect class="cardal-gram-cell" x="{{ add 93 (mul $column 16) }}" y="{{ add 39 (mul $row 16) }}" width="13" height="13" rx="2" fill="currentColor" style="--gram-start: {{ printf "%.3f" $initial }}; --gram-end: {{ printf "%.3f" $expanded }};" />
+    {{ end }}
+  {{ end }}
+  <text class="cardal-psd" x="82" y="128" text-anchor="middle">X = FFᵀ ⪰ 0</text>
+  <text class="solver-label" x="82" y="150" text-anchor="middle">Adaptive factor rank</text>
+  <path class="solver-guide" d="M175 26V157" stroke-dasharray="2 4" />
+  <text class="solver-label" x="246" y="27" text-anchor="middle">Semidefinite program</text>
+  <g class="cardal-problem">
+    <text x="189" y="65" class="cardal-min">min</text>
+    <text x="198" y="78" class="cardal-subscript">X</text>
+    <text x="230" y="65" class="cardal-objective">⟨C, X⟩</text>
+    <text x="189" y="105" class="cardal-subject">s.t.</text>
+    <text x="227" y="105" class="cardal-constraint">𝒜(X) = b</text>
+    <text x="227" y="136" class="cardal-cone">X ⪰ 0</text>
+  </g>
+  <text class="solver-caption" x="160" y="180" text-anchor="middle">Low-rank factors · Semidefinite optimization</text>
+  {{ else if eq . "primal-dual" }}
+  <path class="solver-guide" d="M125 58H143V130H125M131 124L125 130L131 136M25 130H7V58H25M19 52L25 58L19 64" />
+  <path class="pdhcg-flow pdhcg-to-dual" pathLength="100" d="M125 58H143V130H125" />
+  <path class="pdhcg-flow pdhcg-to-primal" pathLength="100" d="M25 130H7V58H25" />
+  <g class="pdhcg-primal">
+    <rect class="solver-box" x="25" y="33" width="100" height="50" rx="9" />
+    <text class="solver-math" x="75" y="56" text-anchor="middle">x</text>
+    <text class="solver-label" x="75" y="73" text-anchor="middle">Primal update</text>
+  </g>
+  <g class="pdhcg-dual">
+    <rect class="solver-box" x="25" y="105" width="100" height="50" rx="9" />
+    <text class="solver-math" x="75" y="128" text-anchor="middle">y</text>
+    <text class="solver-label" x="75" y="145" text-anchor="middle">Dual update</text>
+  </g>
+  <path class="solver-guide" d="M161 30V158" stroke-dasharray="2 4" />
+  <text class="solver-label" x="242" y="39" text-anchor="middle">Convex conic QP</text>
+  <g class="pdhcg-problem">
+    <text x="175" y="79" class="pdhcg-min">min</text>
+    <text x="185" y="92" class="pdhcg-subscript">x</text>
+    <text x="212" y="72" class="pdhcg-fraction" text-anchor="middle">1</text>
+    <path d="M207 76H217" stroke="currentColor" stroke-width=".7" />
+    <text x="212" y="86" class="pdhcg-fraction" text-anchor="middle">2</text>
+    <text x="222" y="81" class="pdhcg-objective">x<tspan dy="-6" font-size="9">⊤</tspan><tspan dy="6">Hx + c</tspan><tspan dy="-6" font-size="9">⊤</tspan><tspan dy="6">x</tspan></text>
+    <text x="175" y="125" class="pdhcg-subject">s.t.</text>
+    <text x="213" y="125" class="pdhcg-constraint">Ax ∈ 𝒞.</text>
+  </g>
+  <text class="solver-caption" x="160" y="180" text-anchor="middle">Primal–dual update cycle</text>
+  {{ else if eq . "distributed" }}
+  {{/* Faithful to Fig. 1: GPU 0,1 in the first row; GPU 2,3 in the second. */}}
+  <text class="solver-label" x="85" y="18" text-anchor="middle">2 × 2 GPU mesh</text>
+  <text class="solver-label" x="260" y="18" text-anchor="middle">Local memory</text>
+  <g class="dp-collective-tracks">
+    <path class="solver-guide" d="M75 53H98M75 123H98M42 75V101M131 75V101" />
+    <path class="dp-row-traffic" d="M38 77V99M46 99V77M127 77V99M135 99V77" />
+    <path class="dp-column-traffic" d="M77 49H96M96 57H77M77 119H96M96 127H77" />
+  </g>
+  {{ range $device := slice (dict "index" 0 "x" 10 "y" 31) (dict "index" 1 "x" 98 "y" 31) (dict "index" 2 "x" 10 "y" 101) (dict "index" 3 "x" 98 "y" 101) }}
+  <g class="dp-device dp-device-{{ .index }}">
+    <rect class="dp-chip" x="{{ .x }}" y="{{ .y }}" width="65" height="44" rx="8" />
+    <rect class="dp-chip-active" x="{{ .x }}" y="{{ .y }}" width="65" height="44" rx="8" />
+    <text class="solver-gpu" x="{{ add .x 32.5 }}" y="{{ add .y 26 }}" text-anchor="middle">GPU {{ .index }}</text>
+  </g>
+  {{ end }}
+  <path class="dp-zoom" d="M164 31L207 30M164 75L207 145" />
+  <rect class="dp-memory" x="207" y="30" width="106" height="115" rx="10" />
+  <g class="dp-matrix">
+    <rect class="solver-box" x="216" y="43" width="52" height="48" rx="5" />
+    <text class="solver-label" x="242" y="71" text-anchor="middle">A[i,j]</text>
+  </g>
+  <g class="dp-y">
+    <rect class="solver-box" x="277" y="43" width="27" height="48" rx="5" />
+    <text class="solver-label" x="290.5" y="71" text-anchor="middle">y[i]</text>
+  </g>
+  <g class="dp-x">
+    <rect class="solver-box" x="216" y="104" width="52" height="24" rx="5" />
+    <text class="solver-label" x="242" y="120" text-anchor="middle">x[j]</text>
+  </g>
+  <text class="solver-formula" x="85" y="161" text-anchor="middle">R ↕ · C ↔</text>
+  <text class="solver-formula" x="260" y="161" text-anchor="middle">Device (i,j)</text>
+  <text class="solver-caption solver-static-caption" x="160" y="185" text-anchor="middle">Local SpMV → axis-wise AllReduce</text>
+  <g class="solver-phase-label dp-phase-0"><text class="solver-caption" x="160" y="185" text-anchor="middle">01  Local Aᵀy on every GPU</text></g>
+  <g class="solver-phase-label dp-phase-1"><text class="solver-caption" x="160" y="185" text-anchor="middle">02  AllReduce R ↕ · update x</text></g>
+  <g class="solver-phase-label dp-phase-2"><text class="solver-caption" x="160" y="185" text-anchor="middle">03  Local A x̄ on every GPU</text></g>
+  <g class="solver-phase-label dp-phase-3"><text class="solver-caption" x="160" y="185" text-anchor="middle">04  AllReduce C ↔ · update y</text></g>
+  {{ end }}
+</svg>

@@ -1,5 +1,7 @@
 ---
 title: 'OptPipe: Memory- and Scheduling-Optimized Pipeline Parallelism for LLM Training'
+research_topics:
+- Optimization for AI
 authors:
 - Hongpei Li
 - Han Zhang

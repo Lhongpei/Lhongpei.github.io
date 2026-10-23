@@ -1,5 +1,7 @@
 ---
 title: 'PDHCG-II: An Enhanced Version of PDHCG for Large-Scale Convex QP'
+research_topics:
+- GPU-Accelerated Optimization
 authors:
 - Hongpei Li
 - Yicheng Huang

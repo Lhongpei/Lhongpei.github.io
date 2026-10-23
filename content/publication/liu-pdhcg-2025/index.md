@@ -1,6 +1,8 @@
 ---
 title: 'PDHCG: A Scalable First-Order Method for Large-Scale Competitive Market Equilibrium
   Computation'
+research_topics:
+- GPU-Accelerated Optimization
 authors:
 - Huikang Liu
 - Yicheng Huang

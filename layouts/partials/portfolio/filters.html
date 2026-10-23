@@ -1,0 +1,20 @@
+{{ $counts := newScratch }}
+{{ range .pages }}
+  {{ range partial "portfolio/filter-values.html" (dict "page" . "kind" $.kind) }}
+    {{ $counts.Add . 1 }}
+  {{ end }}
+{{ end }}
+<div class="collection-filters" data-filter-controls hidden>
+  <div class="collection-filter-heading">
+    <p>Filter by {{ .kind }}</p>
+    <p data-filter-status role="status" aria-live="polite" aria-atomic="true">{{ len .pages }} {{ .plural }}</p>
+  </div>
+  <div class="collection-filter-options" role="group" aria-label="Filter {{ .plural }} by {{ .kind }}">
+    <button type="button" class="collection-filter" data-filter-value="" aria-pressed="true" aria-controls="{{ .results_id }}">All <span>{{ len .pages }}</span></button>
+    {{ range $name, $count := $counts.Values }}
+    <button type="button" class="collection-filter" data-filter-value="{{ $name }}" aria-pressed="false" aria-controls="{{ $.results_id }}">{{ $name }} <span>{{ $count }}</span></button>
+    {{ end }}
+  </div>
+</div>
+{{ $filters := resources.Get "js/collection-filters.js" | minify | fingerprint }}
+<script src="{{ $filters.RelPermalink }}" defer></script>

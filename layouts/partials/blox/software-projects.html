@@ -1,0 +1,36 @@
+{{ $content := .wcBlock.content }}
+{{ $metadata := index (readFile "static/github-software.json" | unmarshal) "repositories" }}
+{{ partial "portfolio/hero.html" (dict "content" $content "link_url" "https://github.com/Lhongpei" "link_label" "GitHub profile" "meta" (printf "%d research solvers" (len $content.projects))) }}
+<div class="catalog-shell catalog-body">
+  <header class="catalog-list-heading"><h2>Research solvers</h2><span>Code & accompanying papers</span></header>
+  <div class="software-grid">
+    {{ range $index, $project := $content.projects }}
+    {{ $repo := printf "https://github.com/%s" .repo }}
+    {{ $repoMetadata := index $metadata .repo }}
+    <article class="catalog-card software-card software-card-{{ .visual }}">
+      <div class="software-art" role="img" aria-label="{{ .diagram_description }}">
+        <div class="software-art-label"><span>{{ .category }}</span><span aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span></div>
+        {{ partial "portfolio/solver-art.html" .visual }}
+      </div>
+      <div class="software-card-body">
+        <header class="software-identity">
+          <h3>{{ .name }}</h3>
+          {{ with .page_url }}<a class="software-project-page" href="{{ . }}" target="_blank" rel="noopener">Project page <span aria-hidden="true">↗</span></a>{{ end }}
+        </header>
+        <p class="software-description">{{ .description }}</p>
+        <ul class="software-topics" aria-label="Project topics">{{ range .topics }}<li>{{ . }}</li>{{ end }}</ul>
+      </div>
+      <footer class="software-card-footer">
+        <div class="software-metadata">
+          {{ with $repoMetadata.release }}<span class="software-release">Release <span class="sw-ver" data-repo="{{ $project.repo }}">{{ . }}</span></span>{{ end }}
+          <a class="software-stars" href="{{ $repo }}" target="_blank" rel="noopener"><span aria-hidden="true">☆</span> <span class="sw-stars" data-repo="{{ .repo }}">{{ $repoMetadata.stars }}</span><span class="sr-only"> GitHub stars</span></a>
+        </div>
+        <nav class="software-actions" aria-label="Resources for {{ .name }}">
+          <a class="software-code" href="{{ $repo }}" target="_blank" rel="noopener">View code <span aria-hidden="true">↗</span></a>
+          <a class="software-paper" href="{{ .paper_url }}" target="_blank" rel="noopener">Read paper <span aria-hidden="true">↗</span></a>
+        </nav>
+      </footer>
+    </article>
+    {{ end }}
+  </div>
+</div>

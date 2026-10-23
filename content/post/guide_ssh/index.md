@@ -1,6 +1,8 @@
 ---
 Title: Configure Your Server (Part I) -- SSH and Git
-Date: 2025-06-16  
+Date: 2025-06-16
+summary: Configure SSH keys, simplify remote access, and set up Git for a research server.
+topic: Research infrastructure
 Categories:
 - Guide  
 - LLM  

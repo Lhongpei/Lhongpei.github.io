@@ -1,0 +1,2 @@
+{{ $motion := resources.Get "js/hero-scroll.js" | minify | fingerprint }}
+<script src="{{ $motion.RelPermalink }}" defer></script>

@@ -1,0 +1,16 @@
+{{ $content := .wcBlock.content }}
+{{ $publications := where site.RegularPages "Section" "publication" }}
+<div class="bio-shell">
+  <header class="bio-publications-header">
+    <div>
+      <p class="bio-eyebrow">Latest work</p>
+      <h2>{{ $content.title }}</h2>
+    </div>
+    <a class="bio-all-papers" href="{{ "publication/" | relURL }}">All research <span aria-hidden="true">↗</span></a>
+  </header>
+  <div class="bio-publication-list">
+    {{ range first ($content.count | default 5) $publications.ByDate.Reverse }}
+      {{ partial "views/citation.html" (dict "item" .) }}
+    {{ end }}
+  </div>
+</div>

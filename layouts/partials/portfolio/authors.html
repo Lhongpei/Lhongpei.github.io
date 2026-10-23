@@ -1,0 +1,10 @@
+{{- $owner := site.GetPage "/authors/admin" -}}
+{{- $ownerName := lower (trim $owner.Title " ") -}}
+{{- range $index, $author := .GetTerms "authors" -}}
+  {{- if gt $index 0 }}, {{ end -}}
+  {{- $highlight := or $author.Params.highlight_name (eq (lower (trim $author.LinkTitle " ")) $ownerName) -}}
+  {{- if $highlight }}<strong>{{ else }}<span>{{ end -}}
+    {{- if $author.RelPermalink -}}<a href="{{ $author.RelPermalink }}">{{ $author.LinkTitle }}</a>{{- else -}}{{ $author.LinkTitle }}{{- end -}}
+  {{- if $highlight }}</strong>{{ else }}</span>{{ end -}}
+  {{- with $.Params.author_notes }}{{ with index . $index }}<sup class="paper-author-note" title="{{ . }}" aria-label="{{ . }}">*</sup>{{ end }}{{ end -}}
+{{- end -}}

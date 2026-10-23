@@ -1,5 +1,7 @@
 ---
 title: 'BenLOC: A Benchmark for Learning to Configure MIP Optimizers'
+research_topics:
+- AI for Optimization
 authors:
 - Hongpei Li
 - Ziyan He

@@ -1,6 +1,8 @@
 ---
 title: A Restarted Primal-Dual Hybrid Conjugate Gradient Method for Large-Scale Quadratic
   Programming
+research_topics:
+- GPU-Accelerated Optimization
 authors:
 - Yicheng Huang
 - Wanyu Zhang

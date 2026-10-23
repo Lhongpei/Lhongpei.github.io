@@ -1,6 +1,8 @@
 ---
 Title: Use Customized CUDA kernel in your PyTorch Code
 Date: 2025-07-07
+summary: Implement a custom CUDA kernel, connect it to PyTorch, and integrate it with autograd.
+topic: CUDA & PyTorch
 Categories:
 - Guide  
 - LLM  

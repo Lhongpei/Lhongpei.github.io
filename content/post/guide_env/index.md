@@ -1,6 +1,8 @@
 ---
 Title: Configure Your Server (Part II) -- Python Environment
-Date: 2025-06-17  
+Date: 2025-06-17
+summary: Set up Anaconda and manage Python environments for deep learning on a server or cluster.
+topic: Research infrastructure
 Categories:
 - Guide  
 - LLM  

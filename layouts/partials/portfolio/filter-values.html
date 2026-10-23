@@ -1,0 +1,8 @@
+{{- $values := slice -}}
+{{- if eq .kind "tag" -}}
+  {{- range (.page.Params.categories | default slice) }}{{ $values = $values | append (trim . " ") }}{{ end -}}
+  {{- range (.page.Params.tags | default slice) }}{{ $values = $values | append (trim . " ") }}{{ end -}}
+{{- else -}}
+  {{- range (.page.Params.research_topics | default .page.Params.tags | default slice) }}{{ $values = $values | append (trim . " ") }}{{ end -}}
+{{- end -}}
+{{- return (uniq $values) -}}

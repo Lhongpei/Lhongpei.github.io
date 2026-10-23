@@ -1,0 +1,5 @@
+{{- $notes := slice -}}
+{{- range .Params.author_notes }}{{ with . }}{{ $notes = $notes | append . }}{{ end }}{{ end -}}
+{{- range uniq $notes -}}
+<p class="paper-contribution-note"><span aria-hidden="true">*</span> {{ . }}</p>
+{{- end -}}

@@ -1,6 +1,8 @@
 ---
 title: Solving Integrated Process Planning and Scheduling Problem via Graph Neural
   Network Based Deep Reinforcement Learning
+research_topics:
+- AI for Optimization
 authors:
 - Hongpei Li
 - Han Zhang

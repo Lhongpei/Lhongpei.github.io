@@ -1,5 +1,7 @@
 ---
 title: 'D-PDLP: Scaling PDLP to Distributed Multi-GPU Systems'
+research_topics:
+- GPU-Accelerated Optimization
 authors:
 - Hongpei Li
 - Yicheng Huang

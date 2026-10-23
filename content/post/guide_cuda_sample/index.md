@@ -1,6 +1,8 @@
 ---
 Title: Unlocking Your GPU's Potential--A Guide to CUDA Samples and Performance Testing
-Date: 2025-06-17  
+Date: 2025-06-17
+summary: Build NVIDIA CUDA samples and use them to test GPU performance and connectivity.
+topic: GPU computing
 Categories:
 - Guide  
 - LLM  

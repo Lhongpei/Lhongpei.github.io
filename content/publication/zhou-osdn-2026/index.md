@@ -1,5 +1,7 @@
 ---
 title: 'OSDN: Improving Delta Rule with Provable Online Preconditioning in Linear Attention'
+research_topics:
+- Optimization for AI
 authors:
 - Chenyu Zhou
 - Hongpei Li
@@ -7,6 +9,13 @@ authors:
 - Jianghao Lin
 - Dongdong Ge
 - Yinyu Ye
+author_notes:
+- 'Equal contribution (co-first authors).'
+- 'Equal contribution (co-first authors).'
+- ''
+- ''
+- ''
+- ''
 date: '2026-05-01'
 publishDate: '2026-05-01T00:00:00.000000Z'
 publication_types:

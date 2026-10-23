@@ -1,5 +1,7 @@
 ---
 title: 'A Curvature-Aware Rank-Adaptive Distributed Augmented-Lagrangian Solver for Large-Scale SDPs'
+research_topics:
+- GPU-Accelerated Optimization
 authors:
 - Hongpei Li
 - Huikang Liu

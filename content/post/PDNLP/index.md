@@ -1,6 +1,8 @@
 ---
 Title: Accelerating Nonlinear Programming on GPUs
 Date: 2025-08-12
+summary: GPU-accelerated nonlinear programming with rAPDHG and L-BFGS-B, including a Fisher market equilibrium application.
+topic: GPU optimization
 Categories:
 - Guide  
 - LLM  

@@ -1,5 +1,7 @@
 ---
 title: 'GPU-Accelerated Conic Quadratic Programming with Local Linear Convergence under Strict Complementarity'
+research_topics:
+- GPU-Accelerated Optimization
 authors:
 - Hongpei Li
 - Yicheng Huang

@@ -1,0 +1,23 @@
+{{ $content := .content }}
+{{ $photo := resources.Get (printf "media/%s" $content.image) }}
+{{ $large := $photo.Fit "1440x960 webp" }}
+{{ $small := $photo.Fit "720x480 webp" }}
+<div class="catalog-hero" data-scroll-hero>
+  <div class="catalog-hero-photo" data-hero-photo aria-hidden="true">
+    <img src="{{ $large.RelPermalink }}" srcset="{{ $small.RelPermalink }} 720w, {{ $large.RelPermalink }} 1440w" sizes="(max-width: 640px) 36vw, 42vw" width="{{ $large.Width }}" height="{{ $large.Height }}" alt="" decoding="async">
+  </div>
+  <header class="catalog-shell catalog-header">
+    <div>
+      <p class="bio-eyebrow">{{ $content.eyebrow }}</p>
+      <h1>{{ $content.title }}</h1>
+      <p class="catalog-description">{{ $content.description }}</p>
+    </div>
+    <div class="catalog-overview">
+      <a href="{{ .link_url | relURL }}"{{ if hasPrefix .link_url "http" }} target="_blank" rel="noopener"{{ end }}>{{ .link_label }} <span aria-hidden="true">↗</span></a>
+      <p>{{ .meta }}</p>
+    </div>
+  </header>
+</div>
+{{ partial "portfolio/hero-motion.html" . }}
+{{ $motion := resources.Get "js/catalog-motion.js" | minify | fingerprint }}
+<script src="{{ $motion.RelPermalink }}" defer></script>

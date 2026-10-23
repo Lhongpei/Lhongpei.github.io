@@ -3,65 +3,42 @@ title: Software
 type: landing
 cms_exclude: true
 
-design:
-  # Default section spacing
-  spacing: "1rem"
-
 sections:
-  - block: markdown
+  - block: software-projects
+    id: software
     content:
       title: Software
-      text: ""
+      eyebrow: Research software
+      description: GPU-accelerated solvers for large-scale optimization.
+      image: software-bg.jpg
+      projects:
+        - name: CARDAL
+          visual: rank-adaptive
+          diagram_description: 'CARDAL solves semidefinite programs: minimize the matrix inner product of C and X, subject to A(X) = b and positive-semidefinite X. A thin factor F represents X = F F-transpose. Adding a correction column updates the symmetric matrix while preserving positive semidefiniteness.'
+          category: Semidefinite programming
+          repo: Lhongpei/CARDAL
+          description: A low-rank augmented Lagrangian solver for large-scale semidefinite programs, with multi-GPU acceleration.
+          topics: [GPU, Multi-GPU, Low-Rank, Semidefinite Programming]
+          paper_url: https://arxiv.org/abs/2607.17933
+        - name: PDHCG
+          visual: primal-dual
+          diagram_description: 'PDHCG alternates updates of the primal variable x and dual variable y. The problem is to minimize one-half x-transpose H x plus c-transpose x, subject to A x belonging to the set C.'
+          category: Quadratic programming
+          repo: Lhongpei/PDHCG
+          description: A GPU-accelerated first-order solver for convex conic quadratic programs, with multi-GPU support.
+          topics: [GPU, Multi-GPU, First-Order Methods, Quadratic Programming]
+          paper_url: https://arxiv.org/abs/2602.23967
+          page_url: https://pdhcg.github.io/PDHCG/
+        - name: D-PDLP
+          visual: distributed
+          diagram_description: 'Adapted from D-PDLP Figure 1: four GPUs form a two-dimensional mesh. Each device stores A[i,j], x[j] and y[i]. Local A-transpose-y products reduce vertically along R to update x; local A-x-bar products reduce horizontally along C to update y.'
+          category: Linear programming
+          repo: Lhongpei/D-PDLP
+          description: A first-order linear programming solver accelerated across multiple GPUs.
+          topics: [GPU, Multi-GPU, First-Order Methods, Linear Programming]
+          paper_url: https://arxiv.org/abs/2601.07628
     design:
-      css_class: dark
+      css_class: catalog-page software-page
       spacing:
-        padding: ['8rem', '0', '8rem', '0']
-      background:
-        color: black
-        image:
-          # Add your image background to `assets/media/`.
-          filename: software-bg.jpg
-          filters:
-            brightness: 0.6
-          size: cover
-          position: center
-          parallax: true
-  - block: markdown
-    content:
-      title: ""
-      text: |-
-        <div class="sw-grid">
-          <div class="sw-card">
-            <div class="sw-head"><h3 class="sw-title">CARDAL</h3><span class="sw-ver" data-repo="Lhongpei/CARDAL">v0.1.1</span></div>
-            <p class="sw-desc">A Low-Rank ALM Solver for Large-Scale SDPs with Multi-GPU Acceleration.</p>
-            <div class="sw-tags"><span>GPU</span><span>Multi-GPU</span><span>Low-Rank</span><span>Semidefinite Programming</span></div>
-            <div class="sw-links">
-              <a class="sw-btn" href="https://github.com/Lhongpei/CARDAL" target="_blank" rel="noopener">★ Code</a>
-              <a class="sw-btn ghost" href="https://arxiv.org/abs/2607.17933" target="_blank" rel="noopener">Paper</a>
-              <a class="sw-gh" href="https://github.com/Lhongpei/CARDAL" target="_blank" rel="noopener" aria-label="GitHub stars"><svg class="sw-i" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg><svg class="sw-i" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"></path></svg><span class="sw-stars" data-repo="Lhongpei/CARDAL">7</span></a>
-            </div>
-          </div>
-          <div class="sw-card">
-            <div class="sw-head"><h3 class="sw-title">PDHCG</h3><span class="sw-ver" data-repo="Lhongpei/PDHCG">v0.3.0</span></div>
-            <p class="sw-desc">A GPU-Accelerated First Order Solver for Convex Conic QPs (also support Multi-GPU).</p>
-            <div class="sw-tags"><span>GPU</span><span>Multi-GPU</span><span>FOM</span><span>Quadratic Programming</span></div>
-            <div class="sw-links">
-              <a class="sw-btn" href="https://github.com/Lhongpei/PDHCG" target="_blank" rel="noopener">★ Code</a>
-              <a class="sw-btn ghost" href="https://arxiv.org/abs/2602.23967" target="_blank" rel="noopener">Paper</a>
-              <a class="sw-gh" href="https://github.com/Lhongpei/PDHCG" target="_blank" rel="noopener" aria-label="GitHub stars"><svg class="sw-i" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg><svg class="sw-i" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"></path></svg><span class="sw-stars" data-repo="Lhongpei/PDHCG">14</span></a>
-            </div>
-          </div>
-          <div class="sw-card">
-            <div class="sw-head"><h3 class="sw-title">D-PDLP</h3><span class="sw-ver" data-repo="Lhongpei/D-PDLP">v0.0.3</span></div>
-            <p class="sw-desc">A First-Order LP Solver Accelerated on Multiple GPUs.</p>
-            <div class="sw-tags"><span>GPU</span><span>Multi-GPU</span><span>FOM</span><span>Linear Programming</span></div>
-            <div class="sw-links">
-              <a class="sw-btn" href="https://github.com/Lhongpei/D-PDLP" target="_blank" rel="noopener">★ Code</a>
-              <a class="sw-btn ghost" href="https://arxiv.org/abs/2601.07628" target="_blank" rel="noopener">Paper</a>
-              <a class="sw-gh" href="https://github.com/Lhongpei/D-PDLP" target="_blank" rel="noopener" aria-label="GitHub stars"><svg class="sw-i" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg><svg class="sw-i" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"></path></svg><span class="sw-stars" data-repo="Lhongpei/D-PDLP">17</span></a>
-            </div>
-          </div>
-        </div>
-    design:
-      columns: '1'
+        padding: ['0', '0', '0', '0']
 ---
