@@ -1,0 +1,26 @@
+{{- $page := .page -}}
+{{- $format := "02 Jan 2006" -}}
+{{- if .compact -}}{{- $format = "2006.01.02" -}}{{- end -}}
+{{- $startFormat := $format -}}
+{{- if not .compact -}}
+  {{- with $page.Params.date_end -}}
+    {{- $end := time.AsTime . -}}
+    {{- if gt $end $page.Date -}}
+      {{- if eq ($end.Format "2006") ($page.Date.Format "2006") -}}{{- $startFormat = "02 Jan" -}}{{- end -}}
+      {{- if eq ($end.Format "2006-01") ($page.Date.Format "2006-01") -}}{{- $startFormat = "02" -}}{{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Format $startFormat }}</time>
+{{- with $page.Params.date_end -}}
+  {{- $end := time.AsTime . -}}
+  {{- if gt $end $page.Date -}}
+    {{- if $.compact -}}
+      {{- $endFormat := "2006.01.02" -}}
+      {{- if eq ($end.Format "2006-01") ($page.Date.Format "2006-01") -}}{{- $endFormat = "02" -}}{{- end -}}
+      –<time datetime="{{ $end.Format "2006-01-02" }}">{{ $end.Format $endFormat }}</time>
+    {{- else -}}
+      –<time datetime="{{ $end.Format "2006-01-02" }}">{{ $end.Format $format }}</time>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

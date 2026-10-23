@@ -34,4 +34,4 @@ Clicking the main photo or a photo in the grid opens a full-screen lightbox and 
 
 Reduced-motion preferences disable autoplay and transitions. Without JavaScript, the grid links directly to the originals. Include the cover in `photos` if it should also appear inside the album. `camera` is optional and appears right-aligned below the date and location; omit it to hide the device label. Photo captions are also optional.
 
-The card shows the title above the date (bottom left) and location (bottom right). Albums are sorted newest first using the outing date. Set `draft: false` when the photos and text are ready. Preview drafts with `hugo server -D`.
+The card shows the title above the date (bottom left) and location (bottom right). Albums are sorted newest first using the outing date. For a trip spanning multiple days, add an optional `date_end: '2026-09-22'`; the card and album header will show the date range. Set `draft: false` when the photos and text are ready. Preview drafts with `hugo server -D`.
